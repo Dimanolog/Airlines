@@ -1,4 +1,6 @@
-package by.trainings.java8.year2016.dzshnipko.airlines;
+package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
+
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 
 public class User extends AbstractModel  {
 	

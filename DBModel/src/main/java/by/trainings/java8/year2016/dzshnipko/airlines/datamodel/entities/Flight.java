@@ -1,4 +1,4 @@
-package by.trainings.java8.year2016.dzshnipko.airlines;
+package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -13,7 +13,6 @@ public class Flight extends AbstractModel
 	private String destinationAirport;
 	private Date аrrivalTime;
 	private HashSet<RoutePoint> route;
-	
 	
 	public Aircraft getAircraft() {
 		return aircraft;
@@ -63,5 +62,8 @@ public class Flight extends AbstractModel
 	public void setRoute(HashSet<RoutePoint> route) {
 		this.route = route;
 	}
+	
+	
+
 
 }

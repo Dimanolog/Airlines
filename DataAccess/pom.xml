@@ -5,5 +5,5 @@
     <artifactId>AirLines</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>DataAccess</artifactId>
+  <artifactId>DataAccesss</artifactId>
 </project>

@@ -1,4 +1,4 @@
-package by.trainings.java8.year2016.dzshnipko.airlines;
+package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Date;
 
@@ -12,9 +12,20 @@ public class Employee extends AbstractModel {
 	private String photo;
 	private String description; 
 	private Date employmentDate;
+	private Integer totalFlight; 
 	private User user;
 	
-		public Specialty getSpecialty() {
+	
+	
+	private Integer getTotalFlight() {
+		return totalFlight;
+	}
+
+	private void setTotalFlight(Integer totalFlight) {
+		this.totalFlight = totalFlight;
+	}
+
+	public Specialty getSpecialty() {
 		return specialty;
 	}
 
