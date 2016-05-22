@@ -2,17 +2,44 @@ package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+@Entity
 public class Flight extends AbstractModel
 {
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Aircraft aircraft;
+	@Column
 	private String departurePointName;
+	@Column
 	private String departureAirport;
+	@Column
 	private Date departureTime; 
+	@Column
 	private String destinationPointName;
+	@Column
 	private String destinationAirport;
+	@Column
 	private Date аrrivalTime;
-	private HashSet<RoutePoint> route;
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<RoutePoint> route;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	private FlightResult flightResult;
+	
+	@ManyToMany(targetEntity = Employee.class, fetch = FetchType.LAZY)
+	private Set<Employee> employees;
+	
+	
 	
 	public Aircraft getAircraft() {
 		return aircraft;
@@ -56,10 +83,10 @@ public class Flight extends AbstractModel
 	public void setАrrivalTime(Date аrrivalTime) {
 		this.аrrivalTime = аrrivalTime;
 	}
-	public HashSet<RoutePoint> getRoute() {
+	public Set<RoutePoint> getRoute() {
 		return route;
 	}
-	public void setRoute(HashSet<RoutePoint> route) {
+	public void setRoute(Set<RoutePoint> route) {
 		this.route = route;
 	}
 	

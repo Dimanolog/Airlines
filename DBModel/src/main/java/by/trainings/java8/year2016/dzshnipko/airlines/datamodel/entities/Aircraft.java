@@ -1,17 +1,39 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.AircraftState;
 
+@Entity
 public class Aircraft {
+	@Id
 	private String aircraftsNumber;
+	@Column
 	private Date  manufactureDate;
+	@Column
 	private Date dateOfPurchase;
+	@ManyToOne(fetch = FetchType.LAZY)
 	private AircraftModel modelName;
+	@Column
 	private String photo; 
+	@Column
 	private Integer totalFlight;
+	@Column
+    @Enumerated(value = EnumType.ORDINAL)
 	private AircraftState aircraftState;
+	
+	@OneToMany(fetch=FetchType.LAZY)
+	private Set<Flight> flights; 
 	
 	private String getAircraftsNumber() {
 		return aircraftsNumber;

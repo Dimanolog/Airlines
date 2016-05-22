@@ -3,26 +3,36 @@ package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 import java.awt.SecondaryLoop;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.FlightState;
 
-public class FightResult {
-	private Flight flight;
+public class FlightResult {
+	@Column
 	private Integer firstClassPassengers;
+	@Column
 	private Integer secondClassPassengers;
+	@Column
 	private Integer thirdClassPassengers;
+	@Column
 	private Integer cargoWeight;
+	@Column
 	private Integer fuelConsumption;
+	
+	@Enumerated(value=EnumType.ORDINAL)
 	private FlightState flightState;
+	@Column
 	private BigDecimal costs;
+	@Column
 	private BigDecimal income;
+	@Column
 	private BigDecimal profit;
 	
-	public Flight getFlight() {
-		return flight;
-	}
-	public void setFlight(Flight flight) {
-		this.flight = flight;
-	}
 	public Integer getFirstClassPassengers() {
 		return firstClassPassengers;
 	}

@@ -1,20 +1,47 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
 public class Employee extends AbstractModel {
 	
+	@Column
+    @Enumerated(value = EnumType.ORDINAL)
 	private Specialty specialty;
+	@Column
 	private String name;
+	@Column
 	private String surname;
+	@Column
 	private String gender;
+	@Column
 	private String dateOfBirth;
+	@Column
 	private String photo;
+	@Column
 	private String description; 
+	@Column
 	private Date employmentDate;
+	@Column
 	private Integer totalFlight; 
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
 	private User user;
 	
+    @ManyToMany(targetEntity = Flight.class, fetch = FetchType.LAZY)
+	private Set<Flight>flights;
 	
 	
 	private Integer getTotalFlight() {

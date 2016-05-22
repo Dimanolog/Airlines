@@ -1,29 +1,56 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
-public class AircraftModel implements Serializable{
-	
+@Entity
+public class AircraftModel extends AbstractModel {
+	@Column
 	private String name;
+	@Column
 	private String firstClassSeats;
+	@Column
 	private String secondClassSeats; 
+	@Column
 	private String thirdClassSeats;
+	@Column
 	private Integer maxRange;
+	@Column
 	private Integer cruisingSpeed;
+	@Column
 	private Integer maxSpeed;
+	@Column
 	private Integer maxTransportedCargo;
+	@Column
 	private Integer maxCargoCapacity;
+	@Column
 	private Integer serviceCeiling;
+	@Column
 	private Integer consumPerHour;
+	@Column
 	private Integer мaxFuelCapacity;
+	@Column
 	private String  description;
+	@Column
 	private Boolean	firstPilot;
+	@Column
 	private Boolean secondPilot;
+	@Column
 	private Boolean navigator;
+	@Column
 	private Boolean radioman;
+	@Column
 	private Boolean flightEngineer;
+	@Column
 	private Integer stewards;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<Aircraft> aircraftsList;
+	
 	
 	public String getName() {
 		return name;
