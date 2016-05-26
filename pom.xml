@@ -1,13 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>by.trainings.java8.2016.dzshnipko.airlines</groupId>
-  <artifactId>AirLines</artifactId>
+  <groupId>by.trainings.java8.year2016.dzshnipko.airlines</groupId>
+  <artifactId>airlines</artifactId>
   <version>0.1.0</version>
   <name>Airlines</name>
   
   <description>airlines system</description>
   
   <packaging>pom</packaging>
+  
+  <properties>
+		<spring.version>4.0.3.RELEASE</spring.version>
+		<wicket.version>7.1.0</wicket.version>
+		<jetty9.version>9.2.13.v20150730</jetty9.version>
+		<project.groupId>by.trainings.java8.year2016.dzshnipko.airlines</project.groupId>
+  </properties>
   
   <build>
 
@@ -40,9 +47,19 @@
 		<dependencies>
 
 			<dependency>
-				<groupId>by.trainings.java8.2016.dzshnipko.airlines</groupId>
-				<artifactId>DBModel</artifactId>
-				<version>1.0.0</version>
+				<groupId>by.trainings.java8.year2016.dzshnipko.airlines</groupId>
+				<artifactId>airlines-datamodel</artifactId>
+				<version>0.1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>airlines-dao</artifactId>
+				<version>0.1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>airlines-services</artifactId>
+				<version>0.1.0</version>
 			</dependency>
 			<dependency>
 				<groupId>commons-dbcp</groupId>
@@ -134,11 +151,6 @@
 				<scope>test</scope>
 			</dependency>
 
-
-
-
-
-
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-api</artifactId>
@@ -220,14 +232,21 @@
 				<artifactId>spring-web</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
+			<dependency>
+  			<groupId>joda-time</groupId>
+  			<artifactId>joda-time</artifactId>
+  			<version>2.9.3</version>
+		</dependency>
 		</dependencies>
+		
+		
 
 		
 	</dependencyManagement>
 	
   <modules>
-  	<module>DBModel</module>
-  	<module>DAOModel</module>
-  	<module>ServicesLayer</module>
+  	<module>airlines-dao</module>
+  	<module>airlines-datamodel</module>
+  	<module>airlines-services</module>
   </modules>
 </project>
