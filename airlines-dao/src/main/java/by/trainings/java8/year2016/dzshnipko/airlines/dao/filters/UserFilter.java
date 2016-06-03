@@ -5,13 +5,13 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 public class UserFilter extends AbstractFilter {
 
 	private UserRole userRole;
-	private UserRole login;
+	private String login;
 	private String email;
 	private boolean FetchEmployee;
 	public UserRole getUserRole() {
 		return userRole;
 	}
-	public UserRole getLogin() {
+	public String getLogin() {
 		return login;
 	}
 	public String getEmail() {
@@ -23,7 +23,7 @@ public class UserFilter extends AbstractFilter {
 	public void setUserRole(UserRole userRole) {
 		this.userRole = userRole;
 	}
-	public void setLogin(UserRole login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 	public void setEmail(String email) {

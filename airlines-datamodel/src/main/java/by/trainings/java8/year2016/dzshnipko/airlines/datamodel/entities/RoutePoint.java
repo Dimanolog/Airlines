@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
 public class RoutePoint implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5982538076955983693L;
 	@Id
 	private Integer pointNumder;
 	@Column

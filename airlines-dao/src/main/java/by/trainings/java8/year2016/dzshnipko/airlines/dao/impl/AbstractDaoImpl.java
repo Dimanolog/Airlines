@@ -12,12 +12,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.jpa.criteria.OrderImpl;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AbstractFilter;
-import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.AbstractDao;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AbstractModel;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft;
-
-
 
 
 
@@ -32,9 +27,8 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         this.entityClass = entityClass;
                        
     }
-
-    @Override
-    public  abstract void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<T> cq, Root<T> from);
+    	
+    protected abstract void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<T> from);
 
     @Override
     public List<T> getAll() {
@@ -95,21 +89,18 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         // set execute query
         return q.getSingleResult();
     }
-    
-   
+      
     public List<T> find(AbstractFilter filter) {
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(getEntityClass());
         Root<T> from = cq.from(getEntityClass());
         cq.select(from);
-        // set sort params
-
         setSortProperty(filter, cq, from);
-
+        handleFilterParameters( filter,  cb,  cq, null);
         TypedQuery<T> q = em.createQuery(cq);
         setPaging(filter, q);
-     
+        
         return q.getResultList();
     }
 
@@ -126,7 +117,5 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         }
      
     }
-    
-    
-  
+   
 }

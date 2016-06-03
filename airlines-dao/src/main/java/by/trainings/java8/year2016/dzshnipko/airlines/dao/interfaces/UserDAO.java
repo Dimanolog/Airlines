@@ -4,4 +4,8 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
 
 public interface UserDAO extends AbstractDao<User, Long> {
 
+	User getUserByLogin(String login);
+
+	User getUserByEmail(String email);
+
 }

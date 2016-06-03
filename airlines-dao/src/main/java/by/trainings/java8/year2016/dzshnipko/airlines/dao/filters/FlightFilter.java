@@ -16,8 +16,8 @@ public class FlightFilter extends AbstractFilter {
 	
 	private String destinationAirport;
 	
-	private Date аrrivalTimeMax;
-	private Date аrrivalTimeMin;
+	private Date arrivalTimeMax;
+	private Date arrivalTimeMin;
 	
 	private boolean fetchRoutePoints;
 		
@@ -50,11 +50,11 @@ public class FlightFilter extends AbstractFilter {
 	}
 
 	public Date getАrrivalTimeMax() {
-		return аrrivalTimeMax;
+		return arrivalTimeMax;
 	}
 
 	public Date getАrrivalTimeMin() {
-		return аrrivalTimeMin;
+		return arrivalTimeMin;
 	}
 
 	public boolean isFetchRoutePoints() {
@@ -93,12 +93,12 @@ public class FlightFilter extends AbstractFilter {
 		this.destinationAirport = destinationAirport;
 	}
 
-	public void setАrrivalTimeMax(Date аrrivalTimeMax) {
-		this.аrrivalTimeMax = аrrivalTimeMax;
+	public void setАrrivalTimeMax(Date arrivalTimeMax) {
+		this.arrivalTimeMax = arrivalTimeMax;
 	}
 
-	public void setАrrivalTimeMin(Date аrrivalTimeMin) {
-		this.аrrivalTimeMin = аrrivalTimeMin;
+	public void setАrrivalTimeMin(Date arrivalTimeMin) {
+		this.arrivalTimeMin = arrivalTimeMin;
 	}
 
 	public void setFetchRoutePoints(boolean fetchRoutePoints) {

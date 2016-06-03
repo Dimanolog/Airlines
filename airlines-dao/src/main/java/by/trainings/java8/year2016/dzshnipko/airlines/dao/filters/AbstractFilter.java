@@ -8,8 +8,9 @@ public class AbstractFilter implements Serializable {
 
     private SingularAttribute sortProperty;
     private boolean sortOrder; 
-    private Integer offset;
-    private Integer limit;
+    
+    private int offset;
+    private int limit;
 
     public SingularAttribute getSortProperty() {
         return sortProperty;
@@ -27,20 +28,20 @@ public class AbstractFilter implements Serializable {
         this.sortOrder = sortOrder;
     }
 
-    public Integer getOffset() {
+    public int getOffset() {
         return offset;
     }
 
-    public void setOffset(Integer offset) {
+    public void setOffset(int offset) {
         this.offset = offset;
     }
 
-    public Integer getLimit() {
+    public int getLimit() {
         return limit;
     }
 
-    public void setLimit(Integer limit) {
-        this.limit = limit;
+    public void setLimit(int limit) {
+        this.limit = (int) limit;
     }
 
 }

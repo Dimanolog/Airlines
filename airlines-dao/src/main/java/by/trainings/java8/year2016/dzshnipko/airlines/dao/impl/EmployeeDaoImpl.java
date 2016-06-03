@@ -17,10 +17,12 @@ public class EmployeeDaoImpl extends AbstractDaoImpl<Employee, Long> {
 	}
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<Employee> cq,
-			Root<?> from) {
+	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+			Root<Employee> from) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+	
+	<!-- Menu panel -->
+	<entry key="menu.home">Home</entry>
+	<entry key="menu.flights">Flights</entry>
+	<entry key="menu.employee">Employee</entry>
+	<entry key="menu.aircraft">Aircraft</entry>
+	<entry key="menu.logout">logout</entry>
+	<entry key="menu.logoin">login</entry>
+
+	
+    <!-- i18n -->
+	<entry key="US">Английский</entry>
+	<entry key="RU">Русский</entry>
+	
+	<!-- Flights page -->
+	<entry key="fligts.header">fligts</entry>
+	<entry key="menu.flights">Рейсы</entry>
+	<entry key="menu.employee">Персонал</entry>
+	<entry key="menu.aircraft">Самолеты</entry>
+	<entry key="menu.logout">Выход</entry>
+	<entry key="menu.login">Вход</entry>
+
+	
+
+
+
+
+</properties>

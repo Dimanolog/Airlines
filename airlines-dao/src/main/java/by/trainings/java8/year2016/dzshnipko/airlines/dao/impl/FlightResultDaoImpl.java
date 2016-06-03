@@ -18,10 +18,14 @@ public class FlightResultDaoImpl extends AbstractDaoImpl<FlightResult, Long> {
 	}
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<FlightResult> cq,
-			Root<?> from) {
+	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+			Root<FlightResult> from) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	
+		
 }
+
+

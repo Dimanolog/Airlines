@@ -6,6 +6,10 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;;
 
 @Entity
 public class User extends AbstractModel  {
+/**
+	 * 
+	 */
+private static final long serialVersionUID = 8613899772498958260L;
 @Column	
 private UserRole userRole;
 @Column

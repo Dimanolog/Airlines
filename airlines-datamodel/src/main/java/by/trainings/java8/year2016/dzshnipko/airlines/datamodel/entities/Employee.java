@@ -14,11 +14,13 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeStatus;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 
 
 @Entity
 public class Employee extends AbstractModel {
 	
+	private static final long serialVersionUID = -3780794553137222209L;
 	@Column
     @Enumerated(value = EnumType.ORDINAL)
 	private Specialty specialty;
@@ -27,9 +29,10 @@ public class Employee extends AbstractModel {
 	@Column
 	private String surname;
 	@Column
-	private String gender;
+    @Enumerated(value = EnumType.ORDINAL)
+	private Gender gender;
 	@Column
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	@Column
 	private String photo;
 	@Column
@@ -45,7 +48,7 @@ public class Employee extends AbstractModel {
 	@PrimaryKeyJoinColumn
 	private User user;
 	
-    @ManyToMany(targetEntity = Flight.class, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Flight.class, fetch = FetchType.LAZY, mappedBy="employees")
 	private Set<Flight>flights;
 	
 	
@@ -81,19 +84,19 @@ public class Employee extends AbstractModel {
 		this.surname = surname;
 	}
 
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -143,6 +146,11 @@ public class Employee extends AbstractModel {
 
 	public void setFlights(Set<Flight> flights) {
 		this.flights = flights;
+	}
+	
+	public String getFullName()
+	{
+		return String.format("%s %s" , surname , name );
 	}
 			
 }

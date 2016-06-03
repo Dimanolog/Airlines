@@ -6,36 +6,36 @@ public class AircraftModelFilter extends AbstractFilter {
 
 	private String name;
 
-	private Integer firstClassSeatsMax;
-	private Integer firstClassSeatsMin;
+	private int firstClassSeatsMax;
+	private int firstClassSeatsMin;
 	
-	private Integer secondClassSeatsMax;
-	private Integer secondClassSeatsMin;
+	private int secondClassSeatsMax;
+	private int secondClassSeatsMin;
 
-	private Integer thirdClassSeatsMax;
-	private Integer thirdClassSeatsMin;
+	private int thirdClassSeatsMax;
+	private int thirdClassSeatsMin;
 
-	private Integer maxPassegersMax;
-	private Integer maxPassegersMin;
+	private int maxPassegersMax;
+	private int maxPassegersMin;
 
-	private Integer maxRangeMax;
-	private Integer maxRangeMin;
+	private int maxRangeMax;
+	private int maxRangeMin;
 
-	private Integer cruisingSpeedMax;
-	private Integer cruisingSpeedMin;
+	private int cruisingSpeedMax;
+	private int cruisingSpeedMin;
 
-	private Integer maxTransportedCargoMin;
-	private Integer maxTransportedCargoMax;
+	private int maxTransportedCargoMin;
+	private int maxTransportedCargoMax;
 
-	private Integer maxCargoCapacityMin;
-	private Integer maxCargoCapacityMax;
+	private int maxCargoCapacityMin;
+	private int maxCargoCapacityMax;
 	
-	private Integer serviceCeiling;
+	private int serviceCeiling;
 
-	private Integer consumPerHourMax;
-	private Integer consumPerHourMin;
+	private int consumPerHourMax;
+	private int consumPerHourMin;
 
-	private Integer мaxFuelCapacity;
+	private int  maxFuelCapacity;
 	
 	private boolean isFetchAircrafts;
 
@@ -43,177 +43,178 @@ public class AircraftModelFilter extends AbstractFilter {
 		return name;
 	}
 
-	public Integer getFirstClassSeatsMax() {
+	public int getFirstClassSeatsMax() {
 		return firstClassSeatsMax;
 	}
 
-	public Integer getFirstClassSeatsMin() {
+	public int getFirstClassSeatsMin() {
 		return firstClassSeatsMin;
 	}
 
-	public Integer getSecondClassSeatsMax() {
+	public int getSecondClassSeatsMax() {
 		return secondClassSeatsMax;
 	}
 
-	public Integer getSecondClassSeatsMin() {
+	public int getSecondClassSeatsMin() {
 		return secondClassSeatsMin;
 	}
 
-	public Integer getThirdClassSeatsMax() {
+	public int getThirdClassSeatsMax() {
 		return thirdClassSeatsMax;
 	}
 
-	public Integer getThirdClassSeatsMin() {
+	public int getThirdClassSeatsMin() {
 		return thirdClassSeatsMin;
 	}
 
-	public Integer getMaxPassegersMax() {
+	public int getMaxPassegersMax() {
 		return maxPassegersMax;
 	}
 
-	public Integer getMaxPassegersMin() {
+	public int getMaxPassegersMin() {
 		return maxPassegersMin;
 	}
 
-	public Integer getMaxRangeMax() {
+	public int getMaxRangeMax() {
 		return maxRangeMax;
 	}
 
-	public Integer getMaxRangeMin() {
+	public int getMaxRangeMin() {
 		return maxRangeMin;
 	}
 
-	public Integer getCruisingSpeedMax() {
+	public int getCruisingSpeedMax() {
 		return cruisingSpeedMax;
 	}
 
-	public Integer getCruisingSpeedMin() {
+	public int getCruisingSpeedMin() {
 		return cruisingSpeedMin;
 	}
 
-	public Integer getMaxTransportedCargoMin() {
+	public int getMaxTransportedCargoMin() {
 		return maxTransportedCargoMin;
 	}
 
-	public Integer getMaxTransportedCargoMax() {
+	public int getMaxTransportedCargoMax() {
 		return maxTransportedCargoMax;
 	}
 
-	public Integer getMaxCargoCapacityMin() {
+	public int getMaxCargoCapacityMin() {
 		return maxCargoCapacityMin;
 	}
 
-	public Integer getMaxCargoCapacityMax() {
+	public int getMaxCargoCapacityMax() {
 		return maxCargoCapacityMax;
 	}
 
-	public Integer getServiceCeiling() {
+	public int getServiceCeiling() {
 		return serviceCeiling;
 	}
 
-	public Integer getConsumPerHourMax() {
+	public int getConsumPerHourMax() {
 		return consumPerHourMax;
 	}
 
-	public Integer getConsumPerHourMin() {
+	public int getConsumPerHourMin() {
 		return consumPerHourMin;
 	}
 
-	public Integer getМaxFuelCapacity() {
-		return мaxFuelCapacity;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setFirstClassSeatsMax(Integer firstClassSeatsMax) {
-		this.firstClassSeatsMax = firstClassSeatsMax;
-	}
-
-	public void setFirstClassSeatsMin(Integer firstClassSeatsMin) {
-		this.firstClassSeatsMin = firstClassSeatsMin;
-	}
-
-	public void setSecondClassSeatsMax(Integer secondClassSeatsMax) {
-		this.secondClassSeatsMax = secondClassSeatsMax;
-	}
-
-	public void setSecondClassSeatsMin(Integer secondClassSeatsMin) {
-		this.secondClassSeatsMin = secondClassSeatsMin;
-	}
-
-	public void setThirdClassSeatsMax(Integer thirdClassSeatsMax) {
-		this.thirdClassSeatsMax = thirdClassSeatsMax;
-	}
-
-	public void setThirdClassSeatsMin(Integer thirdClassSeatsMin) {
-		this.thirdClassSeatsMin = thirdClassSeatsMin;
-	}
-
-	public void setMaxPassegersMax(Integer maxPassegersMax) {
-		this.maxPassegersMax = maxPassegersMax;
-	}
-
-	public void setMaxPassegersMin(Integer maxPassegersMin) {
-		this.maxPassegersMin = maxPassegersMin;
-	}
-
-	public void setMaxRangeMax(Integer maxRangeMax) {
-		this.maxRangeMax = maxRangeMax;
-	}
-
-	public void setMaxRangeMin(Integer maxRangeMin) {
-		this.maxRangeMin = maxRangeMin;
-	}
-
-	public void setCruisingSpeedMax(Integer cruisingSpeedMax) {
-		this.cruisingSpeedMax = cruisingSpeedMax;
-	}
-
-	public void setCruisingSpeedMin(Integer cruisingSpeedMin) {
-		this.cruisingSpeedMin = cruisingSpeedMin;
-	}
-
-	public void setMaxTransportedCargoMin(Integer maxTransportedCargoMin) {
-		this.maxTransportedCargoMin = maxTransportedCargoMin;
-	}
-
-	public void setMaxTransportedCargoMax(Integer maxTransportedCargoMax) {
-		this.maxTransportedCargoMax = maxTransportedCargoMax;
-	}
-
-	public void setMaxCargoCapacityMin(Integer maxCargoCapacityMin) {
-		this.maxCargoCapacityMin = maxCargoCapacityMin;
-	}
-
-	public void setMaxCargoCapacityMax(Integer maxCargoCapacityMax) {
-		this.maxCargoCapacityMax = maxCargoCapacityMax;
-	}
-
-	public void setServiceCeiling(Integer serviceCeiling) {
-		this.serviceCeiling = serviceCeiling;
-	}
-
-	public void setConsumPerHourMax(Integer consumPerHourMax) {
-		this.consumPerHourMax = consumPerHourMax;
-	}
-
-	public void setConsumPerHourMin(Integer consumPerHourMin) {
-		this.consumPerHourMin = consumPerHourMin;
-	}
-
-	public void setМaxFuelCapacity(Integer мaxFuelCapacity) {
-		this.мaxFuelCapacity = мaxFuelCapacity;
+	public int getМaxFuelCapacity() {
+		return maxFuelCapacity;
 	}
 
 	public boolean isFetchAircrafts() {
 		return isFetchAircrafts;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setFirstClassSeatsMax(int firstClassSeatsMax) {
+		this.firstClassSeatsMax = firstClassSeatsMax;
+	}
+
+	public void setFirstClassSeatsMin(int firstClassSeatsMin) {
+		this.firstClassSeatsMin = firstClassSeatsMin;
+	}
+
+	public void setSecondClassSeatsMax(int secondClassSeatsMax) {
+		this.secondClassSeatsMax = secondClassSeatsMax;
+	}
+
+	public void setSecondClassSeatsMin(int secondClassSeatsMin) {
+		this.secondClassSeatsMin = secondClassSeatsMin;
+	}
+
+	public void setThirdClassSeatsMax(int thirdClassSeatsMax) {
+		this.thirdClassSeatsMax = thirdClassSeatsMax;
+	}
+
+	public void setThirdClassSeatsMin(int thirdClassSeatsMin) {
+		this.thirdClassSeatsMin = thirdClassSeatsMin;
+	}
+
+	public void setMaxPassegersMax(int maxPassegersMax) {
+		this.maxPassegersMax = maxPassegersMax;
+	}
+
+	public void setMaxPassegersMin(int maxPassegersMin) {
+		this.maxPassegersMin = maxPassegersMin;
+	}
+
+	public void setMaxRangeMax(int maxRangeMax) {
+		this.maxRangeMax = maxRangeMax;
+	}
+
+	public void setMaxRangeMin(int maxRangeMin) {
+		this.maxRangeMin = maxRangeMin;
+	}
+
+	public void setCruisingSpeedMax(int cruisingSpeedMax) {
+		this.cruisingSpeedMax = cruisingSpeedMax;
+	}
+
+	public void setCruisingSpeedMin(int cruisingSpeedMin) {
+		this.cruisingSpeedMin = cruisingSpeedMin;
+	}
+
+	public void setMaxTransportedCargoMin(int maxTransportedCargoMin) {
+		this.maxTransportedCargoMin = maxTransportedCargoMin;
+	}
+
+	public void setMaxTransportedCargoMax(int maxTransportedCargoMax) {
+		this.maxTransportedCargoMax = maxTransportedCargoMax;
+	}
+
+	public void setMaxCargoCapacityMin(int maxCargoCapacityMin) {
+		this.maxCargoCapacityMin = maxCargoCapacityMin;
+	}
+
+	public void setMaxCargoCapacityMax(int maxCargoCapacityMax) {
+		this.maxCargoCapacityMax = maxCargoCapacityMax;
+	}
+
+	public void setServiceCeiling(int serviceCeiling) {
+		this.serviceCeiling = serviceCeiling;
+	}
+
+	public void setConsumPerHourMax(int consumPerHourMax) {
+		this.consumPerHourMax = consumPerHourMax;
+	}
+
+	public void setConsumPerHourMin(int consumPerHourMin) {
+		this.consumPerHourMin = consumPerHourMin;
+	}
+
+	public void setМaxFuelCapacity(int maxFuelCapacity) {
+		this.maxFuelCapacity = maxFuelCapacity;
+	}
+
 	public void setFetchAircrafts(boolean isFetchAircrafts) {
 		this.isFetchAircrafts = isFetchAircrafts;
 	}
+
 	
 
 }

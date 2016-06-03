@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<!-- Menu panel -->
+	<entry key="menu.home">Домашняя</entry>
+	<entry key="menu.flights">Авиарейсы</entry>
+	<entry key="menu.employee">Персонал</entry>
+	<entry key="menu.aircraft">Самолеты</entry>
+	<entry key="menu.logout">Выход</entry>
+	<entry key="menu.login">Вход</entry>
+	
+	<!-- Flights page -->
+	<entry key="fligths.header">Авиарейсы</entry>
+	<entry key="fligths.aircraft">Самолет</entry>
+	<entry key="fligths.departure.point">Место отправления</entry>
+	<entry key="fligths.departure.airport">Аэропорт отправления</entry>
+	<entry key="fligths.destination.point">Место прибытия</entry>
+	<entry key="fligths.destination.airport">Аэропорт прибытия</entry>
+	<entry key="fligths.destination.time">Время прибытия</entry>
+	<entry key="fligths.departure.time">Время отправления</entry>
+	
+	<!-- Employee page -->
+	<entry key="employee.header">Персонал</entry>
+	<entry key="employee.fullName">ФИО</entry>
+	<entry key="employee.gender">Пол</entry>
+	<entry key="employee.age">Возраст</entry>
+	<entry key="employee.totalFlight">Общий налет</entry>
+	<entry key="employee.sprcialty">Cпециальность</entry>
+	<entry key="employee.sprcialty">Cпециальность</entry>
+	
+	
+	<!-- Specialty -->
+	<entry key="specialty.firstPilot">Первый пилот</entry>
+	<entry key="specialty.secondPilot">Второй пилот</entry>
+	<entry key="specialty.flightEngineer">Бортинжинер</entry>
+	<entry key="specialty.navigator">Штурман</entry>
+	<entry key="specialty.radioman">Радист</entry>
+	<entry key="specialty.steward">Стюард</entry>
+	<entry key="specialty.administrator">Aдминистратор</entry>
+	<entry key="specialty.dispatcher">Диспетчер</entry>
+	
+	<!-- gender -->
+	<entry key="gender.male">Мужской</entry>
+	<entry key="gender.female">Женский</entry>
+	
+	
+	
+	<!-- others -->
+	<entry key="photo">Фото</entry>
+	
+	
+	
+	
+	<!-- Buttons -->
+	<entry key="btn.create">cоздать</entry>
+	<entry key="btn.save">сохранить</entry>
+	
+	
+	<entry key="US">Английский</entry>
+	<entry key="RU">Русский</entry>
+
+</properties>

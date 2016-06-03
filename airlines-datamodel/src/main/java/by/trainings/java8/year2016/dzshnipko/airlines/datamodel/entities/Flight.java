@@ -1,11 +1,7 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
-
-
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +13,10 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class Flight extends AbstractModel
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1754747029755323991L;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Aircraft aircraft;
 	@Column
@@ -30,7 +30,7 @@ public class Flight extends AbstractModel
 	@Column
 	private String destinationAirport;
 	@Column
-	private Date аrrivalTime;
+	private Date arrivalTime;
 	@OneToMany(fetch = FetchType.LAZY)
 	private Set<RoutePoint> route;
 	
@@ -40,59 +40,107 @@ public class Flight extends AbstractModel
 	
 	@ManyToMany(targetEntity = Employee.class, fetch = FetchType.LAZY)
 	private Set<Employee> employees;
-	
-	
-	
+
 	public Aircraft getAircraft() {
 		return aircraft;
 	}
-	public void setAircraft(Aircraft aircraft) {
-		this.aircraft = aircraft;
-	}
+
 	public String getDeparturePointName() {
 		return departurePointName;
 	}
-	public void setDeparturePointName(String departurePointName) {
-		this.departurePointName = departurePointName;
-	}
+
 	public String getDepartureAirport() {
 		return departureAirport;
 	}
-	public void setDepartureAirport(String departureAirport) {
-		this.departureAirport = departureAirport;
-	}
+
 	public Date getDepartureTime() {
 		return departureTime;
 	}
-	public void setDepartureTime(Date departureTime) {
-		this.departureTime = departureTime;
-	}
+
 	public String getDestinationPointName() {
 		return destinationPointName;
 	}
-	public void setDestinationPointName(String destinationPointName) {
-		this.destinationPointName = destinationPointName;
-	}
+
 	public String getDestinationAirport() {
 		return destinationAirport;
 	}
-	public void setDestinationAirport(String destinationAirport) {
-		this.destinationAirport = destinationAirport;
-	}
+
 	public Date getАrrivalTime() {
-		return аrrivalTime;
+		return arrivalTime;
 	}
-	public void setАrrivalTime(Date аrrivalTime) {
-		this.аrrivalTime = аrrivalTime;
-	}
+
 	public Set<RoutePoint> getRoute() {
 		return route;
 	}
+
+	public FlightResult getFlightResult() {
+		return flightResult;
+	}
+
+	public Set<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setAircraft(Aircraft aircraft) {
+		this.aircraft = aircraft;
+	}
+
+	public void setDeparturePointName(String departurePointName) {
+		this.departurePointName = departurePointName;
+	}
+
+	public void setDepartureAirport(String departureAirport) {
+		this.departureAirport = departureAirport;
+	}
+
+	public void setDepartureTime(Date departureTime) {
+		this.departureTime = departureTime;
+	}
+
+	public void setDestinationPointName(String destinationPointName) {
+		this.destinationPointName = destinationPointName;
+	}
+
+	public void setDestinationAirport(String destinationAirport) {
+		this.destinationAirport = destinationAirport;
+	}
+
+	public void setАrrivalTime(Date arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
 	public void setRoute(Set<RoutePoint> route) {
 		this.route = route;
 	}
-	
-	
+
+	public void setFlightResult(FlightResult flightResult) {
+		this.flightResult = flightResult;
+	}
+
+	public void setEmployees(Set<Employee> employees) {
+		this.employees = employees;
+	}
+
+	public Date getArrivalTime() {
+		return arrivalTime;
+	}
 
 
+	public void setArrivalTime(Date arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+	
+	public String getDeparturePoint(){
+			
+		return String.format("%s (%s)", departurePointName, departureAirport);
+		
+	}
+	
+	public String getDestinationPoint(){
+		
+		return String.format("%s (%s)", destinationPointName, destinationAirport);
+		
+	}
+
+	
 }

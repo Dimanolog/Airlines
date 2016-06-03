@@ -9,6 +9,8 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.FlightStat
 
 @Entity
 public class FlightResult extends AbstractModel {
+	
+	private static final long serialVersionUID = 6947056635576953315L;
 	@Column
 	private Integer firstClassPassengers;
 	@Column
@@ -19,7 +21,6 @@ public class FlightResult extends AbstractModel {
 	private Integer cargoWeight;
 	@Column
 	private Integer fuelConsumption;
-
 	@Enumerated(value = EnumType.ORDINAL)
 	private FlightState flightState;
 	@Column

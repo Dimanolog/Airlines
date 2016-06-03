@@ -1,5 +1,6 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -15,7 +16,12 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.AircraftSt
 
 
 @Entity
-public class Aircraft {
+public class Aircraft implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6931552098255819259L;
 	@Id
 	private String aircraftsNumber;
 	@Column
@@ -31,59 +37,59 @@ public class Aircraft {
 	@Column
     @Enumerated(value = EnumType.ORDINAL)
 	private AircraftState aircraftState;
-	@OneToMany(fetch=FetchType.LAZY)
-	private Set<FlightResult> flights; 
-	
+	@OneToMany(mappedBy="aircraft", fetch=FetchType.LAZY)
+	private Set<Flight> flights;
+	public String getAircraftsNumber() {
+		return aircraftsNumber;
+	}
+	public Date getManufactureDate() {
+		return manufactureDate;
+	}
+	public Date getDateOfPurchase() {
+		return dateOfPurchase;
+	}
 	public AircraftModel getAircraftModel() {
 		return aircraftModel;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public Integer getTotalFlight() {
+		return totalFlight;
+	}
+	public AircraftState getAircraftState() {
+		return aircraftState;
+	}
+	public Set<Flight> getFlights() {
+		return flights;
+	}
+	public void setAircraftsNumber(String aircraftsNumber) {
+		this.aircraftsNumber = aircraftsNumber;
+	}
+	public void setManufactureDate(Date manufactureDate) {
+		this.manufactureDate = manufactureDate;
+	}
+	public void setDateOfPurchase(Date dateOfPurchase) {
+		this.dateOfPurchase = dateOfPurchase;
 	}
 	public void setAircraftModel(AircraftModel aircraftModel) {
 		this.aircraftModel = aircraftModel;
 	}
-	public Set<FlightResult> getFlights() {
-		return flights;
-	}
-	public void setFlights(Set<FlightResult> flights) {
-		this.flights = flights;
-	}
-	
-	
-	private String getAircraftsNumber() {
-		return aircraftsNumber;
-	}
-	private void setAircraftsNumber(String aircraftsNumber) {
-		this.aircraftsNumber = aircraftsNumber;
-	}
-	private Date getManufactureDate() {
-		return manufactureDate;
-	}
-	private void setManufactureDate(Date manufactureDate) {
-		this.manufactureDate = manufactureDate;
-	}
-	private Date getDateOfPurchase() {
-		return dateOfPurchase;
-	}
-	private void setDateOfPurchase(Date dateOfPurchase) {
-		this.dateOfPurchase = dateOfPurchase;
-	}
-	
-	private String getPhoto() {
-		return photo;
-	}
-	private void setPhoto(String photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	private Integer getTotalFlight() {
-		return totalFlight;
-	}
-	private void setTotalFlight(Integer totalFlight) {
+	public void setTotalFlight(Integer totalFlight) {
 		this.totalFlight = totalFlight;
 	}
-	private AircraftState getAircraftState() {
-		return aircraftState;
-	}
-	private void setAircraftState(AircraftState aircraftState) {
+	public void setAircraftState(AircraftState aircraftState) {
 		this.aircraftState = aircraftState;
 	}
+	public void setFlights(Set<Flight> flights) {
+		this.flights = flights;
+	} 
+	
+
+		
+	
 	
 }

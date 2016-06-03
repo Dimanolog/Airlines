@@ -20,6 +20,10 @@ public interface AbstractDao<T, ID> {
     T update(T entity);
 
     void delete(ID id);
+       
+    Long count(AbstractFilter filter);
     
-    void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<T> cq, Root<T> from);
+    List<T> find(AbstractFilter filter);
+    
+    
 }

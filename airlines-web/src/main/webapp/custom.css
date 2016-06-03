@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+.navbar-menu{
+
+   margin: 0;
+   padding: 0;
+   
+   background: #a90329;
+   background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+   background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
+   background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329',         endColorstr='#6d0019',GradientType=0 );
+
+
+}
+.navbar-menu > ul {
+overflow: hidden;
+list-style-type: none;
+font-family: "Times";
+}
+
+.logo{
+float: left;
+width: 210px;
+padding: 9px;
+}
+
+.logo > a {
+text-decoration: none;
+color: #fff;
+font-family: "Audiowide";
+font-size: 32px;
+}
+
+
+
+.navbar-menu > ul li {
+    float: left;
+}
+
+.navbar-menu > ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar-menu > ul li a:hover:not(.active) {
+    background-color: #cc0000;
+}

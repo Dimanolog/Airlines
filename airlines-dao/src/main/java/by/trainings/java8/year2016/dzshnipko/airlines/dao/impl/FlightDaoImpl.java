@@ -19,10 +19,9 @@ public class FlightDaoImpl extends AbstractDaoImpl<Flight, Long> implements Flig
 		// TODO Auto-generated constructor stub
 	}
 
-
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<Flight> cq,
-			Root<?> from) {
+	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+			Root<Flight> from) {
 		// TODO Auto-generated method stub
 		
 	}

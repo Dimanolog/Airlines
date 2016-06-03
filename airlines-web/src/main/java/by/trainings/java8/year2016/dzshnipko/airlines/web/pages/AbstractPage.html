@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+<wicket:header-items />
+</head>
+<body>
+	<header>
+		<div class="header-bg">
+			<img src="images/headerImage.jpg" alt="картинка таки" width="456"
+				height="166">
+				
+		</div>
+		<div class="content" ><wicket:container wicket:id="menu-panel"></wicket:container>
+			<wicket:child/></div>
+	</header>
+	<div class="ft" wicket:id="footer">
+			<br/><br/><br/>
+			@<span wicket:id="current-year"/>
+		</div>
+		<div wicket:id="language-select" class="language-comp"></div>
+</body>
+</html>

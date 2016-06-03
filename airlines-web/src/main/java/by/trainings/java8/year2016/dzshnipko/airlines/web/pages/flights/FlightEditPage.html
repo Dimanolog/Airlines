@@ -1,0 +1,48 @@
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	<div id="wrapper-panel-frame" class="ui-corner-all">
+		<form wicket:id="flight-form">
+			<table>
+				<tr>
+					<td><b><wicket:message key="fligths.aircraft"/>: </b></td>
+					<td><input type="text" wicket:id="aircraft" /></td>
+				</tr>
+
+				<tr>
+					<td><b><wicket:message key="fligths.departure.point"/>: </b></td>
+					<td><input type="text" wicket:id="departurePointName"/></td>
+				</tr>
+				<tr>
+					<td><b><wicket:message key="fligths.departure.airport"/>: </b></td>
+					<td><input type="text" wicket:id="departureAirport"/></td>
+				</tr>
+				<tr>
+					<td><b><wicket:message key="fligths.departure.time"/>: </b></td>
+					<td><span wicket:id="departureTime"></span></td>
+				</tr>
+
+				<tr>
+					<td><b><wicket:message key="fligths.destination.point"/>: </b></td>
+					<td><input type="text" wicket:id="destinationPointName" /></td>
+				</tr>
+				<tr>
+					<td><b><wicket:message key="fligths.destination.airport" />: </b></td>
+					<td><input type="text" wicket:id="destinationAirport" /></td>
+				</tr>
+				<tr>
+					<td><b><wicket:message key="fligths.destination.time" />: </b></td>
+					<td><span wicket:id="arrivalTime"></span></td>
+				</tr>
+
+
+				<tr>
+					<td><button type="submit" wicket:id="save">
+							<wicket:message key="btn.save" />
+						</button></td>
+					<td></td>
+				</tr>
+			</table>
+		</form>
+		<div wicket:id="feedback"></div>
+	</div>
+
+</wicket:extend>

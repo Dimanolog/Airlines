@@ -21,7 +21,7 @@
 
 
 	<bean id="dataSource"
-		class="by.dzhivushko.training.shop.datamodel.util.SchemaNameAwareBasicDataSource"
+		class="by.trainings.java8.year2016.dzshnipko.airlines.datamodel.util.SchemaNameAwareBasicDataSource"
 		destroy-method="close" p:driverClassName="org.postgresql.Driver"
 		p:url="jdbc:postgresql://localhost:5432/shop" p:username="postgres"
 		p:password="postgres" p:schema="public" />
