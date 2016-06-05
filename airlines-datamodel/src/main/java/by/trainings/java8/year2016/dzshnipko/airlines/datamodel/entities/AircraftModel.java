@@ -1,15 +1,14 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.Entiti;
-
 @Entity
-public class AircraftModel extends AbstractModel implements Entiti {
+public class AircraftModel extends AbstractModel {
 	/**
 	 * 
 	 */

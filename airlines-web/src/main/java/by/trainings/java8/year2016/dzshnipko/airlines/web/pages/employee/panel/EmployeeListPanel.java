@@ -33,6 +33,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.EmployeeService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.FlightService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.DateUtil;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.employee.EmployeeEditPage;
 
 public class EmployeeListPanel extends Panel {
 	@Inject
@@ -42,62 +43,63 @@ public class EmployeeListPanel extends Panel {
 
 	public EmployeeListPanel(String id) {
 		super(id);
-	
+
 	}
-	
-		@Override
-		protected void onInitialize() {
-			
-			EmployeeDataProvider provider = new EmployeeDataProvider();
-			DataView<Employee> dataView = new DataView<Employee>("rows", provider, 20) {
-				@Override
-				protected void populateItem(Item<Employee> item) {
-					Employee employee = item.getModelObject();
-				
-					item.add(new Image("photo", new ContextRelativeResource(employee.getPhoto())));
-					item.add(new Label("fullname", employee.getFullName()));
-					
-					EnumChoiceRenderer<Specialty> specialtyRenderer=new EnumChoiceRenderer<Specialty>();
-					String specialty= (String) specialtyRenderer.getDisplayValue(employee.getSpecialty());
-									
-					item.add(new Label("specialty", Model.of(specialty)));
-					
-					EnumChoiceRenderer<Gender> genderRenderer= new EnumChoiceRenderer<>();
-					String gender= (String) genderRenderer.getDisplayValue(employee.getGender());
-					
-					item.add(new Label("gender"), Model.of(gender)));
-					
-					int age= dateUtil.ageFromDate(employee.getDateOfBirth());
-					
-					item.add(new Label("destination-time", flight.getArrivalTime()));
-					item.add(DateLabel.forDatePattern("created", Model.of(flight.getArrivalTime()), "HH:mm dd-MM-yyyy"));
 
-					item.add(new Link<Void>("edit-link") {
-						@Override
-						public void onClick() {
+	@Override
+	protected void onInitialize() {
 
-						}
-					});
-					item.add(new Link<Void>("delete-link") {
-						@Override
-						public void onClick() {
+		EmployeeDataProvider provider = new EmployeeDataProvider();
+		DataView<Employee> dataView = new DataView<Employee>("rows", provider, 20) {
+			@Override
+			protected void populateItem(Item<Employee> item) {
+				Employee employee = item.getModelObject();
 
-						}
-					});
+				item.add(new Image("photo", new ContextRelativeResource(employee.getPhoto())));
+				item.add(new Label("fullname", employee.getFullName()));
 
-				}
-			};
-			add(dataView);
-			add(new PagingNavigator("paging", dataView));
+				EnumChoiceRenderer<Specialty> specialtyRenderer = new EnumChoiceRenderer<Specialty>();
+				String specialty = (String) specialtyRenderer.getDisplayValue(employee.getSpecialty());
 
-			add(new OrderByBorder("sort-destination-point", Flight_.destinationPointName, provider));
-			add(new OrderByBorder("sort-destination-time", Flight_.arrivalTime, provider));
-			add(new OrderByBorder("sort-departure-point", Flight_.departurePointName, provider));
-			add(new OrderByBorder("sort-departure-time", Flight_.departureTime, provider));
-			
-		}
-		}
-	
+				item.add(new Label("specialty", Model.of(specialty)));
+
+				EnumChoiceRenderer<Gender> genderRenderer = new EnumChoiceRenderer<>();
+				String gender = (String) genderRenderer.getDisplayValue(employee.getGender());
+
+				item.add(new Label("gender", Model.of(gender)));
+
+				int age = dateUtil.ageFromDate(employee.getDateOfBirth());
+
+				item.add(new Label("age", Model.of(age)));
+
+				item.add(new Label("total-flight", Model.of(employee.getTotalFlight())));
+
+				item.add(new Link<Void>("edit-link") {
+					@Override
+					public void onClick() {
+						setResponsePage(new EmployeeEditPage(employee));
+
+					}
+				});
+				item.add(new Link<Void>("delete-link") {
+					@Override
+					public void onClick() {
+						employeeService.delete(employee);
+
+					}
+				});
+
+			}
+		};
+		add(dataView);
+		add(new PagingNavigator("paging", dataView));
+
+		add(new OrderByBorder("sort-fullname", Employee_.surname, provider));
+		add(new OrderByBorder("sort-specialty", Employee_.specialty, provider));
+		add(new OrderByBorder("sort-age", Employee_.dateOfBirth, provider));
+		add(new OrderByBorder("sort-total-flight", Employee_.totalFlight, provider));
+
+	}
 
 	private class EmployeeDataProvider extends SortableDataProvider<Employee, Serializable> {
 
@@ -117,8 +119,8 @@ public class EmployeeListPanel extends Panel {
 			filter.setSortProperty((SingularAttribute) property);
 			filter.setSortOrder(propertySortOrder.equals(SortOrder.ASCENDING) ? true : false);
 
-			filter.setLimit((int) count);
-			filter.setOffset((int) first);
+			filter.setLimit((int)count);
+			filter.setOffset((int)first);
 			return employeeService.find(filter).iterator();
 		}
 

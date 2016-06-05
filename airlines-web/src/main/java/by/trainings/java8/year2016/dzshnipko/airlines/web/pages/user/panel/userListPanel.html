@@ -1,0 +1,21 @@
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+<wicket:panel>
+	<table class="list-table">
+		<thead>
+			<tr>
+				<th><wicket:message key="fligths.aircraft"/></th>
+				<th><a wicket:id="sort-user-login"><wicket:message key="user.login"/></a></th>
+				<th><a wicket:id="sort-user-email"><wicket:message key="user.email"/></a></th>
+				<th><a wicket:id="sort-user-role"><wicket:message key="user.role"/></a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr wicket:id="rows">
+				<td><span wicket:id="login"/></td>
+				<td><span wicket:id="email"/></td>
+				<td><span wicket:id="role"/></td>
+			</tr>
+		</tbody>
+	</table>
+	<div wicket:id="paging"></div>
+</wicket:panel>

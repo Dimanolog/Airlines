@@ -42,6 +42,7 @@ public class Employee extends AbstractModel {
 	@Column
 	private Integer totalFlight; 
 	@Column
+    @Enumerated(value = EnumType.ORDINAL)
 	private  EmloyeeStatus employeeStatus;
 	
 	@OneToOne(fetch = FetchType.LAZY)
@@ -52,7 +53,7 @@ public class Employee extends AbstractModel {
 	private Set<Flight>flights;
 	
 	
-	private Integer getTotalFlight() {
+	public Integer getTotalFlight() {
 		return totalFlight;
 	}
 

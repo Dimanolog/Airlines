@@ -10,13 +10,18 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employe
 
 public interface EmployeeService {
 	Long count(EmployeeFilter filter);
-    List<Employee> find(EmployeeFilter filter);
-    @Transactional
-    void save(Employee employee);
-    @Transactional
-    void update(Employee employee);
-    @Transactional
-    void delete(Employee employee);
-    
-    
+
+	List<Employee> find(EmployeeFilter filter);
+
+	@Transactional
+	void save(Employee employee);
+
+	@Transactional
+	void update(Employee employee);
+
+	@Transactional
+	void delete(Employee employee);
+
+	void saveOrUpdate(Employee employee);
+
 }

@@ -15,13 +15,13 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.Employ
 public class EmployeeServiceImpl implements EmployeeService {
 	@Inject
 	private EmployeeDAO dao;
-	
+
 	@Override
 	public Long count(EmployeeFilter filter) {
-		Long count=dao.count(filter);
+		Long count = dao.count(filter);
 		return count;
 	}
-	
+
 	@Override
 	public List<Employee> find(EmployeeFilter filter) {
 		dao.find(filter);
@@ -31,20 +31,28 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void save(Employee employee) {
 		dao.insert(employee);
-	
+
 	}
+
 	@Override
 	public void update(Employee employee) {
 		dao.update(employee);
-		
+
 	}
-	
+	@Override
+	public void saveOrUpdate(Employee employee) {
+		if (employee.getId() != null) {
+			this.update(employee);
+		} else {
+			this.save(employee);
+
+		}
+	}
+
 	@Override
 	public void delete(Employee employee) {
 		dao.delete(employee.getId());
-		
+
 	}
 
 }
-
-
