@@ -24,22 +24,22 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User_;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
-import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.UserEditPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.UserRegisterPage;
 
 public class UserListPanel extends Panel {
 
 	@Inject
 	UserService userService;
-	
+
 	public UserListPanel(String id) {
 		super(id);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	protected void onInitialize() {
 
-		UserDataProvider provider= new UserDataProvider();
+		UserDataProvider provider = new UserDataProvider();
 		DataView<User> dataView = new DataView<User>("rows", provider, 20) {
 			/**
 			 * 
@@ -48,15 +48,15 @@ public class UserListPanel extends Panel {
 
 			@Override
 			protected void populateItem(Item<User> item) {
-				User user=item.getModelObject();
+				User user = item.getModelObject();
 
 				item.add(new Label("login", user.getLogin()));
-				item.add(new Label("email",user.getEmail()));
-				
+				item.add(new Label("email", user.getEmail()));
+
 				EnumChoiceRenderer<UserRole> userRoleRenderer = new EnumChoiceRenderer<UserRole>();
 				String userRole = (String) userRoleRenderer.getDisplayValue(user.getUserRole());
 				item.add(new Label("role", Model.of(userRole)));
-			
+
 				item.add(new Link<Void>("edit-link") {
 					/**
 					 * 
@@ -65,11 +65,11 @@ public class UserListPanel extends Panel {
 
 					@Override
 					public void onClick() {
-						setResponsePage(new UserEditPage(user));
+						setResponsePage(new UserRegisterPage(user));
 
 					}
 				});
-				
+
 				item.add(new Link<Void>("delete-link") {
 					/**
 					 * 
@@ -91,10 +91,10 @@ public class UserListPanel extends Panel {
 		add(new OrderByBorder("sort-user-login", User_.login, provider));
 		add(new OrderByBorder("sort-user-email", User_.email, provider));
 		add(new OrderByBorder("sort-user-role", User_.userRole, provider));
-		
+
 	}
 
-private class UserDataProvider extends SortableDataProvider<User, Serializable> {
+	private class UserDataProvider extends SortableDataProvider<User, Serializable> {
 
 		private UserFilter filter;
 
@@ -103,35 +103,29 @@ private class UserDataProvider extends SortableDataProvider<User, Serializable> 
 			filter = new UserFilter();
 			setSort((Serializable) User_.login, SortOrder.ASCENDING);
 		}
-	
-	@Override
-	public Iterator<User> iterator(long first, long count) {
-		Serializable property = getSort().getProperty();
-		SortOrder propertySortOrder = getSortState().getPropertySortOrder(property);
 
-		filter.setSortProperty((SingularAttribute) property);
-		filter.setSortOrder(propertySortOrder.equals(SortOrder.ASCENDING) ? true : false);
+		@Override
+		public Iterator<User> iterator(long first, long count) {
+			Serializable property = getSort().getProperty();
+			SortOrder propertySortOrder = getSortState().getPropertySortOrder(property);
 
-		filter.setLimit((int)count);
-		filter.setOffset((int)first);
-		return userService.find(filter).iterator();
+			filter.setSortProperty((SingularAttribute) property);
+			filter.setSortOrder(propertySortOrder.equals(SortOrder.ASCENDING) ? true : false);
+
+			filter.setLimit((int) count);
+			filter.setOffset((int) first);
+			return userService.find(filter).iterator();
+		}
+
+		@Override
+		public long size() {
+			return userService.count(filter);
+		}
+
+		@Override
+		public IModel<User> model(User user) {
+			return new Model(user);
+		}
+
 	}
-
-	@Override
-	public long size() {
-		return userService.count(filter);
-	}
-
-	@Override
-	public IModel<User> model(User user) {
-		return new Model(user);
-	}
-
-}
-	
-	
-
-	
-	
-
 }

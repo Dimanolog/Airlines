@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.commons.validator.routines.EmailValidator;
+import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.springframework.stereotype.Service;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.UserFilter;
@@ -15,6 +16,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.
 
 @Service
 public class UserServiceImpl implements UserService {
+
 	@Inject
 	private UserDAO dao;
 	@Inject
@@ -64,8 +66,18 @@ public class UserServiceImpl implements UserService {
 			return dao.getUserByLogin(loginOrEmail);
 		}
 
-		throw new IllegalArgumentException("not valid loing or email");
+		throw new IllegalArgumentException("not valid login or email");
 
+	}
+
+	@Override
+	public boolean checkUniqueLogin(String login) {
+		return dao.getUserByLogin(login) == null;
+	}
+
+	@Override
+	public boolean checkUniqueEmail(String email) {
+		return dao.getUserByEmail(email) == null;
 	}
 
 }

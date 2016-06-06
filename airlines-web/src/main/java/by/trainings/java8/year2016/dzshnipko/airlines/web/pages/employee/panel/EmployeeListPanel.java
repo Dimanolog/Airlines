@@ -6,7 +6,6 @@ import java.util.Iterator;
 import javax.inject.Inject;
 import javax.persistence.metamodel.SingularAttribute;
 
-import org.apache.wicket.datetime.markup.html.basic.DateLabel;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.OrderByBorder;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.SortOrder;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
@@ -23,15 +22,11 @@ import org.apache.wicket.model.Model;
 import org.apache.wicket.request.resource.ContextRelativeResource;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.EmployeeFilter;
-import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.FlightFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee_;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight_;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.EmployeeService;
-import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.FlightService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.DateUtil;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.employee.EmployeeEditPage;
 

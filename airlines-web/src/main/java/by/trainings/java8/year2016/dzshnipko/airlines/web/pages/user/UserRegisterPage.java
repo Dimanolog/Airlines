@@ -1,14 +1,12 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user;
 
 import java.util.Arrays;
-
 import javax.inject.Inject;
-
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EnumChoiceRenderer;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
+import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.validation.EqualPasswordInputValidator;
 import org.apache.wicket.markup.html.link.Link;
@@ -21,16 +19,19 @@ import org.apache.wicket.validation.validator.PatternValidator;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.home.HomePage;
 
+public class UserRegisterPage extends AbstractPage {
 
-public class UserEditPage extends WebPage {
 	private User user;
 	@Inject
 	private UserService userService;
 
-	public UserEditPage(User user) {
+	public UserRegisterPage() {
 		super();
-		this.user=user;
+		user=new User();
+		
 	}
 
 	@Override
@@ -38,33 +39,36 @@ public class UserEditPage extends WebPage {
 		super.onInitialize();
 		
 		CompoundPropertyModel<User> compoundModel = new CompoundPropertyModel<User>(user);
-		Form<User> userForm = new UserEditForm<>("user-form", compoundModel);
+		Form<User> userForm = new UserForm<>("user-form", compoundModel);
 
-		DropDownChoice<UserRole> roleChoice = new DropDownChoice<>("userRole", Arrays.asList(UserRole.values()),
-				new EnumChoiceRenderer<UserRole>());
-		userForm.add(roleChoice);
+		RequiredTextField<String> loginFiled = new RequiredTextField<>("login");
+		userForm.add(loginFiled);
+
+		RequiredTextField<String> emailFiled = new RequiredTextField<>("email");
+		userForm.add(emailFiled);
 
 		PasswordTextField passField = new PasswordTextField("password");
 		passField.add(new PatternValidator(UserService.PASSWORD_PATTERN));
 		userForm.add(passField);
 
-		PasswordTextField confirmPassField = new PasswordTextField("repeat-password", new Model<String>());
-		userForm.add(confirmPassField);
+		PasswordTextField repeatPassField = new PasswordTextField("repeat-password", new Model<String>());
+		userForm.add(repeatPassField);
 
-		userForm.add(new EqualPasswordInputValidator(passField, confirmPassField));
+		userForm.add(new EqualPasswordInputValidator(passField, repeatPassField));
 
 		userForm.add(new SubmitLink("save") {
 			@Override
 			public void onSubmit() {
 				super.onSubmit();
-				userService.update(user);
-				setResponsePage(new UserPage());
+				user.setUserRole(UserRole.user);
+				userService.save(user);
+				setResponsePage(HomePage.class);
 			}
 		});
 		userForm.add(new Link("cancel") {
 			@Override
 			public void onClick() {
-				setResponsePage(UserPage.class);
+				setResponsePage(HomePage.class);
 			}
 		});
 		add(userForm);
@@ -72,10 +76,9 @@ public class UserEditPage extends WebPage {
 
 	}
 
-	private class UserEditForm<T> extends Form<T> {
-		public UserEditForm(String id, IModel<T> model) {
+	private class UserForm<T> extends Form<T> {
+		public UserForm(String id, IModel<T> model) {
 			super(id, model);
 		}
 	}
 }
-

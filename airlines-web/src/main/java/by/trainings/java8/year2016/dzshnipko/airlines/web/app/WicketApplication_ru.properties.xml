@@ -54,7 +54,8 @@
 	<entry key="user.role">Роль пользователя</entry> 
 	<entry key="user.login">Логин</entry>
 	<entry key="user.email">Эл. адрес</entry>
-	<entry key="password">Пароль</entry>
+	<entry key="user.password">Пароль</entry>
+	<entry key="user.repeat.password">Повторить пароль</entry>
 	
 	
 	<!-- gender -->
@@ -64,16 +65,28 @@
 	<!-- others -->
 	<entry key="photo">Фото</entry>
 	
-		
-	
 	<!-- Buttons -->
 	<entry key="btn.create">cоздать</entry>
 	<entry key="btn.save">сохранить</entry>
 	<entry key="btn.cancel">Отмена</entry>
-	
-	
-	
+		
 	<entry key="US">Английский</entry>
 	<entry key="RU">Русский</entry>
+	
+		
+	<!-- ErrorMessages -->
+	<entry key="error.wrong.email">Неверный эл. адрес</entry>
+	<entry key="error.not.unique.email">Введеный адрес уже зарегисрован</entry>
+	<entry key="error.wrong.login">Неверный эл. адрес</entry>
+	<entry key="error.not.unique.login">Введенный логин уже зарегистрирован</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 </properties>

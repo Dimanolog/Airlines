@@ -45,9 +45,7 @@ public class EmployeeEditPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	protected void onInitialize() {
-		super.onInitialize();
+	
 		CompoundPropertyModel<Employee> compoundModel = new CompoundPropertyModel<Employee>(employee);
 		Form<Employee> form = new Form<Employee>("employee-form", compoundModel);
 		final FileUploadField photoUpload = new FileUploadField("photo-upload");
@@ -78,8 +76,7 @@ public class EmployeeEditPage extends AbstractPage {
 			@Override
 			public void onSubmit() {
 				super.onSubmit();
-				employeeService.saveOrUpdate(employee);
-				setResponsePage(new EmployeePage());
+				
 			}
 		});
 		form.add(new Link("cancel") {
