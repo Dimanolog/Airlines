@@ -28,8 +28,8 @@ public class WicketApplication extends AuthenticatedWebApplication
 	
 	
 	
-	  @Inject
-	   private ApplicationContext applicationContext;
+	@Inject
+	private ApplicationContext applicationContext;
 	@Override
 	public Class<? extends WebPage> getHomePage()
 	{
