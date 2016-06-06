@@ -65,7 +65,7 @@ public class UserListPanel extends Panel {
 
 					@Override
 					public void onClick() {
-						setResponsePage(new UserRegisterPage(user));
+						setResponsePage(new UserRegisterPage());
 
 					}
 				});

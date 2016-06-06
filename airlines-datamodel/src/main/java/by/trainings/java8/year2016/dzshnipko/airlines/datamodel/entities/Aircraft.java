@@ -88,8 +88,5 @@ public class Aircraft implements Serializable {
 		this.flights = flights;
 	} 
 	
-
-		
-	
 	
 }

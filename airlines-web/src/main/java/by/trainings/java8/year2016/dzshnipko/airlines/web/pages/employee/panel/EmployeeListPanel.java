@@ -49,7 +49,7 @@ public class EmployeeListPanel extends Panel {
 			@Override
 			protected void populateItem(Item<Employee> item) {
 				Employee employee = item.getModelObject();
-
+								
 				item.add(new Image("photo", new ContextRelativeResource(employee.getPhoto())));
 				item.add(new Label("fullname", employee.getFullName()));
 

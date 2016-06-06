@@ -1,6 +1,5 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.employee;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.inject.Inject;
@@ -25,8 +24,6 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.EmployeeService;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights.FlightEditPage;
-import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights.FlightsPage;
 
 public class EmployeeEditPage extends AbstractPage {
 
@@ -45,7 +42,9 @@ public class EmployeeEditPage extends AbstractPage {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	@Override
+	protected void onInitialize() {
+		super.onInitialize();
 		CompoundPropertyModel<Employee> compoundModel = new CompoundPropertyModel<Employee>(employee);
 		Form<Employee> form = new Form<Employee>("employee-form", compoundModel);
 		final FileUploadField photoUpload = new FileUploadField("photo-upload");
@@ -76,7 +75,8 @@ public class EmployeeEditPage extends AbstractPage {
 			@Override
 			public void onSubmit() {
 				super.onSubmit();
-				
+				employeeService.saveOrUpdate(employee);
+				setResponsePage(new EmployeePage());
 			}
 		});
 		form.add(new Link("cancel") {

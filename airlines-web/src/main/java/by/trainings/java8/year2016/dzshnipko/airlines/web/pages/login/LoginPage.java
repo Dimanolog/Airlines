@@ -11,7 +11,9 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.util.string.Strings;
 
-public class LoginPage extends WebPage {
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
+
+public class LoginPage extends AbstractPage {
 
     public static final String ID_FORM = "form";
 

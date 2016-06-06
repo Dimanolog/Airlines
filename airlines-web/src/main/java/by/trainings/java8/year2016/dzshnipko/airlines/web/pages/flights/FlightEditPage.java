@@ -62,9 +62,7 @@ public class FlightEditPage extends AbstractPage {
 		departureAirport.setRequired(true);
 		form.add(departureAirport);
 
-		// basePriceField.add(RangeValidator.<Double> range(0d, 1_000_000d));
-		// basePriceField.setLabel(new ResourceModel("products.price"));
-		// basePriceField.setRequired(true);
+		
 
 		// FeedbackPanel //
 		final KendoFeedbackPanel feedback = new KendoFeedbackPanel("feedback");

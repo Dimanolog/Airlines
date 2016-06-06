@@ -9,6 +9,18 @@
 	<entry key="menu.logout">Выход</entry>
 	<entry key="menu.login">Вход</entry>
 	
+	<!-- AircraftModel page -->
+	<entry key="aircraft.model">Модель самолета</entry>
+	
+	<!-- Aircraft page -->
+	<entry key="aircraft.number">Бортовой номер</entry>
+	<entry key="aircraft.manufactureDate">Дата производства</entry>
+	<entry key="aircraft.dateOfPurchase">Дата покупки</entry>
+	<entry key="aircraft.totalFlight">Общий налет</entry>
+	<entry key="aircraft.age">Общий срок эксплуатации</entry>
+	
+	
+	
 	<!-- Flights page -->
 	<entry key="fligths.header">Авиарейсы</entry>
 	<entry key="fligths.aircraft">Самолет</entry>
@@ -50,6 +62,14 @@
 	<entry key="emloyeeStatus.Parentalleave">Декрет</entry>
 	<entry key="emloyeeStatus.retired">В отставке</entry>
 	
+	<!-- Enum aircraft state -->
+	<entry key="aircraftState.ready">Готов</entry>
+	<entry key="aircraftState.decommissioned">Списан</entry>
+	<entry key="aircraftState.repair">В ремонте</entry>
+	<entry key="aircraftState.sold">Продан</entry>
+	<entry key="aircraftState.inFlight">На задании</entry>
+	<entry key="aircraftState.secretMission">???</entry>
+	
 	<!-- User -->
 	<entry key="user.role">Роль пользователя</entry> 
 	<entry key="user.login">Логин</entry>
@@ -72,6 +92,7 @@
 		
 	<entry key="US">Английский</entry>
 	<entry key="RU">Русский</entry>
+	
 	
 		
 	<!-- ErrorMessages -->
