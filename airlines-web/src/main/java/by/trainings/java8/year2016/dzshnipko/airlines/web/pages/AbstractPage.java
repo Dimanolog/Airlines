@@ -1,6 +1,7 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages;
 
 import java.util.Calendar;
+
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
@@ -8,6 +9,7 @@ import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
+import by.trainings.java8.year2016.dzshnipko.airlines.web.component.localization.LanguageSelectionComponent;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.component.panel.MenuPanel;
 
 
@@ -26,6 +28,7 @@ public abstract class AbstractPage extends WebPage {
         super.onInitialize();
 
         add(new MenuPanel("menu-panel"));
+        add(new LanguageSelectionComponent("language-select"));
 
         AbstractReadOnlyModel<Integer> yearModel = new AbstractReadOnlyModel<Integer>() {
             @Override

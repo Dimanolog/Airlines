@@ -7,17 +7,13 @@
 
 	<persistence-unit name="my-unit">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AbstractModel</class>
-		<class>by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft</class>
-		<class>by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AircraftModel</class>
-		<class>by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee</class>
-		<class>by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect" />
 			<property name="hibernate.ejb.naming_strategy"
-				value="by.trainings.java8.year2016.dzshnipko.airlines.datamodel.util" />
+				value="by.trainings.java8.year2016.dzshnipko.airlines.datamodel.util.CustomImprovedNamingStrategy" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
 	</persistence-unit>
 </persistence>
+
