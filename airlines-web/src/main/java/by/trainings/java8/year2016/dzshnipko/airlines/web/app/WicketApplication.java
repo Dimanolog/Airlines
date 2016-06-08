@@ -25,9 +25,6 @@ public class WicketApplication extends AuthenticatedWebApplication
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
-	
-	
-	
 	@Inject
 	private ApplicationContext applicationContext;
 	@Override
