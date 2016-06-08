@@ -84,12 +84,14 @@ public class AircraftEditPage extends WebPage {
 					aircraft.setAircraftsNumber(aircraftsNumber);
 					if (aircraftService.checkUniqueAircraftNumber(aircraftsNumber)) {
 						aircraftService.save(aircraft);
+						setResponsePage(AircraftPage.class);
 					} else {
 						error(getString("error.not.unique.aircrafts.number"));
 					}
 
 				} else {
 					aircraftService.update(aircraft);
+					setResponsePage(AircraftPage.class);
 				}
 
 			}

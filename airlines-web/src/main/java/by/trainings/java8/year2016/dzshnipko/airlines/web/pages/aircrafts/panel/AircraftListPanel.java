@@ -93,7 +93,7 @@ public class AircraftListPanel extends Panel {
 				item.add(new Link<Void>("edit-link") {
 					@Override
 					public void onClick() {
-						setResponsePage(new AircraftEditPage(aircraft));
+						setResponsePage(new AircraftEditPage(aircraft, true));
 
 					}
 				});
