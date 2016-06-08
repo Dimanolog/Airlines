@@ -20,7 +20,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 @Entity
 public class Employee extends AbstractModel {
 	
-	private static final long serialVersionUID = -3780794553137222209L;
+	
 	@Column
     @Enumerated(value = EnumType.ORDINAL)
 	private Specialty specialty;

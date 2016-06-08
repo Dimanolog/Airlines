@@ -14,18 +14,19 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraf
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.AircraftService;
 
 @Service
-public class AircraftServiceImpl implements AircraftService{
+public class AircraftServiceImpl implements AircraftService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AircraftServiceImpl.class);
 	@Inject
 	private AircraftDAO dao;
+
 	@Override
 	public Long count(AircraftFilter filter) {
-		Long count=dao.count(filter);
+		Long count = dao.count(filter);
 		this.getClass();
 		return count;
 	}
-	
+
 	@Override
 	public List<Aircraft> find(AircraftFilter filter) {
 		dao.find(filter);
@@ -34,27 +35,32 @@ public class AircraftServiceImpl implements AircraftService{
 
 	@Override
 	public void save(Aircraft aircraft) {
-		boolean uniqueNumber = dao.select(aircraft.getAircraftsNumber())==null;
-		if(uniqueNumber)
-		{
+		boolean uniqueNumber = dao.select(aircraft.getAircraftsNumber()) == null;
+		if (uniqueNumber) {
 			dao.insert(aircraft);
-		}
-		else{
+		} else {
 			throw new IllegalArgumentException("not unique aircraft number");
-			
+
 		}
-			
+
 	}
+
 	@Override
-	public void Update(Aircraft aircraft) {
+	public void update(Aircraft aircraft) {
 		dao.update(aircraft);
-		
+
 	}
-	
+
 	@Override
 	public void delete(Aircraft aircraft) {
 		dao.delete(aircraft.getAircraftsNumber());
-		
+
+	}
+	@Override
+	public boolean checkUniqueAircraftNumber(String number) {
+
+		return dao.select(number) == null;
+
 	}
 
 }

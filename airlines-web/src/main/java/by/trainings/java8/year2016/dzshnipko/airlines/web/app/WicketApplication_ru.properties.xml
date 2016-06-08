@@ -18,7 +18,7 @@
 	<entry key="aircraft.dateOfPurchase">Дата покупки</entry>
 	<entry key="aircraft.totalFlight">Общий налет</entry>
 	<entry key="aircraft.age">Общий срок эксплуатации</entry>
-	
+	<entry key="aircraft.state">Общий срок эксплуатации</entry>
 	
 	
 	<!-- Flights page -->
@@ -100,6 +100,7 @@
 	<entry key="error.not.unique.email">Введеный адрес уже зарегисрован</entry>
 	<entry key="error.wrong.login">Неверный эл. адрес</entry>
 	<entry key="error.not.unique.login">Введенный логин уже зарегистрирован</entry>
+	<entry key="error.not.unique.aircrafts.number">Самолет с данным бортовым номеров уже зарегистрирован</entry>
 	
 	
 	

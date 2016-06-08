@@ -23,7 +23,7 @@ public class AircraftModelServiceImpl implements AircraftModelService {
 	}
 
 	@Override
-	public List<AircraftModel> find(AircraftFilter filter) {
+	public List<AircraftModel> find(AircraftModelFilter filter) {
 		// TODO Auto-generated method stub
 		return dao.find(filter);
 	}

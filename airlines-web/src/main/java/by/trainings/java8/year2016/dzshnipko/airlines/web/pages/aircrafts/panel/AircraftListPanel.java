@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import javax.inject.Inject;
 import javax.persistence.metamodel.SingularAttribute;
+import javax.xml.ws.Service.Mode;
 
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.OrderByBorder;
 import org.apache.wicket.extensions.markup.html.repeater.data.sort.SortOrder;
@@ -25,11 +26,13 @@ import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft_;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee_;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.AircraftState;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.AircraftService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.DateUtil;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.aircraftModel.AircraftModelViewPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.aircrafts.AircraftEditPage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.employee.EmployeeEditPage;
 
 public class AircraftListPanel extends Panel {
@@ -61,46 +64,44 @@ public class AircraftListPanel extends Panel {
 					photoPath = DEFAULT_IMAGE_PATH;
 				}
 				item.add(new Image("photo", new ContextRelativeResource(photoPath)));
-				
-				Link<Void> aircraftModelLink=new Link("aircraft-model-link"){
+
+				Link<Void> aircraftModelLink = new Link("aircraft-model-link") {
 
 					@Override
 					public void onClick() {
-						setResponsePage(new AircraftModelViewPage(aircraft.getAircraftModel()) );
-						
+						setResponsePage(new AircraftModelViewPage(aircraft.getAircraftModel()));
+
 					}
-									
-				});
-				aircraftModelLink.add(new Label("aircraft-model-name", Model.of(aircraft.getAircraftModel().getName())));
-				
 
-				EnumChoiceRenderer<Specialty> specialtyRenderer = new EnumChoiceRenderer<Specialty>();
-				String specialty = (String) specialtyRenderer.getDisplayValue(employee.getSpecialty());
+				};
+				aircraftModelLink
+						.add(new Label("aircraft-model-name", Model.of(aircraft.getAircraftModel().getName())));
+				item.add(aircraftModelLink);
 
-				item.add(new Label("specialty", Model.of(specialty)));
+				item.add(new Label("aircraft-number", Model.of(aircraft.getAircraftsNumber())));
 
-				EnumChoiceRenderer<Gender> genderRenderer = new EnumChoiceRenderer<>();
-				String gender = (String) genderRenderer.getDisplayValue(employee.getGender());
+				int aircraftAge = dateUtil.ageFromDate(aircraft.getManufactureDate());
+				item.add(new Label("aircraft-age", Model.of(aircraftAge)));
 
-				item.add(new Label("gender", Model.of(gender)));
+				item.add(new Label("aircraft-totalFlight", Model.of(aircraft.getTotalFlight())));
 
-				int age = dateUtil.ageFromDate(employee.getDateOfBirth());
+				EnumChoiceRenderer<AircraftState> stateRenderer = new EnumChoiceRenderer<AircraftState>();
+				String state = (String) stateRenderer.getDisplayValue(aircraft.getAircraftState());
 
-				item.add(new Label("age", Model.of(age)));
-
-				item.add(new Label("total-flight", Model.of(employee.getTotalFlight())));
+				item.add(new Label("aircraft-state", Model.of(state)));
 
 				item.add(new Link<Void>("edit-link") {
 					@Override
 					public void onClick() {
-						setResponsePage(new EmployeeEditPage(employee));
+						setResponsePage(new AircraftEditPage(aircraft));
 
 					}
 				});
 				item.add(new Link<Void>("delete-link") {
 					@Override
 					public void onClick() {
-						employeeService.delete(employee);
+						
+						service.delete(aircraft);
 
 					}
 				});
@@ -110,10 +111,10 @@ public class AircraftListPanel extends Panel {
 		add(dataView);
 		add(new PagingNavigator("paging", dataView));
 
-		add(new OrderByBorder("sort-fullname", Employee_.surname, provider));
-		add(new OrderByBorder("sort-specialty", Employee_.specialty, provider));
-		add(new OrderByBorder("sort-age", Employee_.dateOfBirth, provider));
-		add(new OrderByBorder("sort-total-flight", Employee_.totalFlight, provider));
+		add(new OrderByBorder("sort-aircraft-model", Aircraft_.aircraftModel, provider));
+		add(new OrderByBorder("sort-number", Aircraft_.aircraftsNumber, provider));
+		add(new OrderByBorder("sort-aircraft-age", Aircraft_.manufactureDate, provider));
+		add(new OrderByBorder("sort-totalFlight", Aircraft_.totalFlight, provider));
 
 	}
 

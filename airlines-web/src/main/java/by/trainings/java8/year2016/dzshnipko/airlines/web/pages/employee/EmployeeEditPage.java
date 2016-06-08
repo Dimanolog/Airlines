@@ -17,6 +17,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.validation.validator.StringValidator;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeStatus;
@@ -51,8 +52,14 @@ public class EmployeeEditPage extends AbstractPage {
 
 		form.add(photoUpload);
 		form.add(new UploadProgressBar("progress", form, photoUpload));
-		form.add(new TextField<String>("surname"));
-		form.add(new TextField<String>("name"));
+		TextField<String> surname = new TextField<String>("surname");
+		StringValidator lenthValidator = StringValidator.lengthBetween(1, 50);
+		surname.add(lenthValidator);
+		form.add(surname);
+		
+		TextField<String> name = new TextField<String>("name");
+		name.add(lenthValidator);
+		form.add(name);
 
 		DropDownChoice<Gender> genderChoice = new DropDownChoice<>("gender", Arrays.asList(Gender.values()),
 				new EnumChoiceRenderer<Gender>());
@@ -92,6 +99,8 @@ public class EmployeeEditPage extends AbstractPage {
 
 		public EmployeeForm(String id, IModel<T> model) {
 			super(id, model);
+			
+			
 		}
 
 	}

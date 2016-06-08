@@ -15,5 +15,7 @@ public interface AircraftService {
     @Transactional
     void delete(Aircraft aircraft);
     @Transactional
-    void Update(Aircraft aircraft);
+    void update(Aircraft aircraft);
+ 
+	boolean checkUniqueAircraftNumber(String number);
 }

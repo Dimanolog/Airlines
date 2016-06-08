@@ -13,10 +13,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class Flight extends AbstractModel
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1754747029755323991L;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Aircraft aircraft;
 	@Column

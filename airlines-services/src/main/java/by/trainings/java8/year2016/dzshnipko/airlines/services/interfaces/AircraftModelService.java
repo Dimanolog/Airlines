@@ -13,7 +13,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraf
 public interface AircraftModelService {
 	Long count(AircraftModelFilter filter);
 
-    List<AircraftModel> find(AircraftFilter filter);
+	List<AircraftModel> find(AircraftModelFilter filter);
 
     @Transactional
     void save(AircraftModel aircraftModel);
@@ -21,5 +21,7 @@ public interface AircraftModelService {
     void update(AircraftModel aircraftModel);
     @Transactional
     void delete(AircraftModel aircraftModel);
+
+	
 }
 

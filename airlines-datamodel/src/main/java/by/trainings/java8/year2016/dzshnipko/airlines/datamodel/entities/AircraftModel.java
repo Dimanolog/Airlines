@@ -9,10 +9,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class AircraftModel extends AbstractModel {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7918513140650976517L;
+	
 	@Column
 	private String name;
 	@Column

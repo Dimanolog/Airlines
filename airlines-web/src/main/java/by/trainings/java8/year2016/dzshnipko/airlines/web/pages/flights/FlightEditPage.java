@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.validation.validator.StringValidator;
 
 import com.googlecode.wicket.kendo.ui.form.datetime.DateTimePicker;
 import com.googlecode.wicket.kendo.ui.panel.KendoFeedbackPanel;
@@ -54,15 +55,17 @@ public class FlightEditPage extends AbstractPage {
 				AircraftChoiceRenderer.getInstance());
 		form.add(aircraftChoice);
 
+		StringValidator lenthValidator = StringValidator.lengthBetween(1, 50);
+
 		TextField<String> departurePoint = new TextField<>("departurePointName");
 		departurePoint.setRequired(true);
+		departurePoint.add(lenthValidator);
 		form.add(departurePoint);
 
 		TextField<String> departureAirport = new TextField<>("departureAirport");
 		departureAirport.setRequired(true);
+		departureAirport.add(lenthValidator);
 		form.add(departureAirport);
-
-		
 
 		// FeedbackPanel //
 		final KendoFeedbackPanel feedback = new KendoFeedbackPanel("feedback");
@@ -75,10 +78,12 @@ public class FlightEditPage extends AbstractPage {
 
 		TextField<String> destinanationPoint = new TextField<>("destinationPointName");
 		destinanationPoint.setRequired(true);
+		destinanationPoint.add(lenthValidator);
 		form.add(departurePoint);
 
 		TextField<String> destinationAirport = new TextField<>("destinationAirport");
 		destinationAirport.setRequired(true);
+		destinanationPoint.add(lenthValidator);
 		form.add(destinationAirport);
 
 		final DateTimePicker destinationTimePicker = new DateTimePicker("arrivalTime");
@@ -91,9 +96,6 @@ public class FlightEditPage extends AbstractPage {
 				super.onSubmit();
 
 				flightService.saveOrUpdate(flight);
-
-				// String localizedMessage = getString("product.saved");
-				// page.info(localizedMessage);
 
 				setResponsePage(new FlightsPage());
 			}

@@ -10,10 +10,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Incident extends AbstractModel
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8777613444893409261L;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Flight flight;
 	@Column

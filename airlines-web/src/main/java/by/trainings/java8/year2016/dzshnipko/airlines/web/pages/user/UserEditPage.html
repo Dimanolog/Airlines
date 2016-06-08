@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+<div id="wrapper-panel-frame" class="ui-corner-all">
+	<form wicket:id="user-form">
+		<table>
 
-</body>
-</html>
+			<tr>
+				<td><b><wicket:message key="user.role" />: </b></td>
+				<td><select wicket:id="userRole" /></select></td>
+			</tr>
+			<tr>
+				<td><b><wicket:message key="user.password" />: </b></td>
+				<td><input type="password" wicket:id="password" /></td>
+			</tr>
+
+			<tr>
+				<td><b><wicket:message key="user.repeat.password" />: </b></td>
+				<td><input type="password" wicket:id="repeat-password" /></td>
+			</tr>
+
+			<tr>
+				<td><button type="submit" wicket:id="save">
+						<wicket:message key="btn.save" />
+					</button></td>
+
+				<td><button wicket:id="cancel">
+						<wicket:message key="btn.cancel" />
+					</button></td>
+
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	<div wicket:id="feedback"></div>
+</div>
+
+</wicket:extend>
