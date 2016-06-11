@@ -5,11 +5,11 @@ package by.trainings.java8.year2016.dzshnipko.airlines.services.utils.impls;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.RegexValidator;
 
-@Component
+@Service
 public class RegexValidatorImpl implements RegexValidator {
 
 	private Pattern loginPattern=Pattern.compile(LOGIN_PATTERN);

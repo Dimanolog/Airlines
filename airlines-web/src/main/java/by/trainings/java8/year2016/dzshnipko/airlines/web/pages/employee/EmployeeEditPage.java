@@ -4,20 +4,21 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
-import org.apache.wicket.extensions.ajax.markup.html.form.upload.UploadProgressBar;
-import org.apache.wicket.extensions.markup.html.form.DateTextField;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EnumChoiceRenderer;
 import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.NumberTextField;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.validation.validator.RangeValidator;
 import org.apache.wicket.validation.validator.StringValidator;
+
+import com.googlecode.wicket.kendo.ui.form.datetime.DatePicker;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeStatus;
@@ -31,6 +32,8 @@ public class EmployeeEditPage extends AbstractPage {
 	private Employee employee;
 	@Inject
 	private EmployeeService employeeService;
+
+	//FileUploadField photoUpload;
 
 	public EmployeeEditPage(PageParameters parameters) {
 		super(parameters);
@@ -48,36 +51,54 @@ public class EmployeeEditPage extends AbstractPage {
 		super.onInitialize();
 		CompoundPropertyModel<Employee> compoundModel = new CompoundPropertyModel<Employee>(employee);
 		Form<Employee> form = new Form<Employee>("employee-form", compoundModel);
-		final FileUploadField photoUpload = new FileUploadField("photo-upload");
+
+		/*photoUpload = new FileUploadField("photo-upload");
 
 		form.add(photoUpload);
-		form.add(new UploadProgressBar("progress", form, photoUpload));
+		form.add(new UploadProgressBar("progress", form, photoUpload));*/
+		
 		TextField<String> surname = new TextField<String>("surname");
 		StringValidator lenthValidator = StringValidator.lengthBetween(1, 50);
+		surname.setRequired(true);
 		surname.add(lenthValidator);
 		form.add(surname);
-		
+
 		TextField<String> name = new TextField<String>("name");
+		name.setRequired(true);
 		name.add(lenthValidator);
 		form.add(name);
 
 		DropDownChoice<Gender> genderChoice = new DropDownChoice<>("gender", Arrays.asList(Gender.values()),
 				new EnumChoiceRenderer<Gender>());
+		genderChoice.setRequired(true);
 		form.add(genderChoice);
 
-		form.add(new DateTextField("dateOfBirth"));
-		form.add(new TextField<Integer>("totalFlight"));
+		final DatePicker birthdayDatepicker = new DatePicker("dateOfBirth", getLocaleDatePattern());
+		birthdayDatepicker.setRequired(true);
+		form.add(birthdayDatepicker);
+
+		final DatePicker employmentDatepicker = new DatePicker("employmentDate", getLocaleDatePattern());
+		employmentDatepicker.setRequired(true);
+		form.add(employmentDatepicker);
+
+		NumberTextField<Integer> flightNumberField = new NumberTextField<Integer>("totalFlight");
+		flightNumberField.setRequired(true);
+		flightNumberField.add(new RangeValidator<Integer>(0, 1000_000));
+		form.add(flightNumberField);
 
 		DropDownChoice<EmloyeeStatus> statusChoice = new DropDownChoice<>("employeeStatus",
 				Arrays.asList(EmloyeeStatus.values()), new EnumChoiceRenderer<EmloyeeStatus>());
+		statusChoice.setRequired(true);
 		form.add(statusChoice);
-
-		form.add(new TextArea<String>("description"));
 		
-		DropDownChoice<Specialty> specilatyChoice= new DropDownChoice<>("specialty", Arrays.asList(Specialty.values()),
+		form.add(new TextArea<String>("description"));
+
+		DropDownChoice<Specialty> specilatyChoice = new DropDownChoice<>("specialty", Arrays.asList(Specialty.values()),
 				new EnumChoiceRenderer<Specialty>());
+		specilatyChoice.setRequired(true);
 		form.add(specilatyChoice);
 		
+
 		form.add(new SubmitLink("save") {
 			@Override
 			public void onSubmit() {
@@ -93,14 +114,14 @@ public class EmployeeEditPage extends AbstractPage {
 			}
 		});
 
+		add(form);
 	}
 
 	private class EmployeeForm<T> extends Form<T> {
 
 		public EmployeeForm(String id, IModel<T> model) {
 			super(id, model);
-			
-			
+
 		}
 
 	}

@@ -28,7 +28,7 @@ public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long> impl
 
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<AircraftModel> from) {
+	protected void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<AircraftModel> from) {
 		AircraftModelFilter aircraftModelFilter=(AircraftModelFilter)filter;
 		List<Predicate> predicates=new ArrayList<>();
 		
@@ -36,21 +36,21 @@ public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long> impl
 			predicates.add(cb.equal(from.get(AircraftModel_.name), aircraftModelFilter.getName()));
 		}
 		
-		if (aircraftModelFilter.getConsumPerHourMax()!=0) {
+		if (aircraftModelFilter.getConsumPerHourMax()!=null) {
             predicates.add(cb.lt(from.get(AircraftModel_.consumPerHour), aircraftModelFilter.getConsumPerHourMax()));
             
         }
-		if (aircraftModelFilter.getConsumPerHourMin()!=0) {
+		if (aircraftModelFilter.getConsumPerHourMin()!=null) {
             predicates.add(cb.gt(from.get(AircraftModel_.consumPerHour), aircraftModelFilter.getConsumPerHourMin()));
             
         }
 		
-		if (aircraftModelFilter.getMaxTransportedCargoMax()!=0) {
+		if (aircraftModelFilter.getMaxTransportedCargoMax()!=null) {
             predicates.add(cb.lt(from.get(AircraftModel_.maxTransportedCargo), aircraftModelFilter.getMaxTransportedCargoMax()));
             
         }
 		
-		if (aircraftModelFilter.getConsumPerHourMin()!=0) {
+		if (aircraftModelFilter.getConsumPerHourMin()!=null) {
             predicates.add(cb.gt(from.get(AircraftModel_.consumPerHour), aircraftModelFilter.getConsumPerHourMin()));
             
         }

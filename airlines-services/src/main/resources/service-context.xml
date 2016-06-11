@@ -16,14 +16,15 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="by.trainings.java8.year2016.dzshnipko.airlines.daomodel.impl" />
-	<context:component-scan base-package="by.trainings.java8.year2016.dzshnipko.airlines.impl" />
+	<context:component-scan base-package="by.trainings.java8.year2016.dzshnipko.airlines.dao.impl" />
+	<context:component-scan base-package="by.trainings.java8.year2016.dzshnipko.airlines.services.impl" />
+	<context:component-scan base-package="by.trainings.java8.year2016.dzshnipko.airlines.services.utils.impls" />
 
 
 	<bean id="dataSource"
 		class="by.trainings.java8.year2016.dzshnipko.airlines.datamodel.util.SchemaNameAwareBasicDataSource"
 		destroy-method="close" p:driverClassName="org.postgresql.Driver"
-		p:url="jdbc:postgresql://localhost:5432/airlinesDb" p:username="postgres"
+		p:url="jdbc:postgresql://localhost:5432/shortAirLinesDB" p:username="postgres"
 		p:password="qscde" p:schema="public"/>
 
 	<bean id="entityManagerFactory"

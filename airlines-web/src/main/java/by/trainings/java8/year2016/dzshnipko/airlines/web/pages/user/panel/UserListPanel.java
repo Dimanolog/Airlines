@@ -38,7 +38,7 @@ public class UserListPanel extends Panel {
 
 	@Override
 	protected void onInitialize() {
-
+		super.onInitialize();
 		UserDataProvider provider = new UserDataProvider();
 		DataView<User> dataView = new DataView<User>("rows", provider, 20) {
 			/**
@@ -124,7 +124,7 @@ public class UserListPanel extends Panel {
 
 		@Override
 		public IModel<User> model(User user) {
-			return new Model(user);
+			return new Model<User>(user);
 		}
 
 	}

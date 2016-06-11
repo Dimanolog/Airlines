@@ -12,8 +12,8 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employe
 @Repository
 public class EmployeeDaoImpl extends AbstractDaoImpl<Employee, Long> implements EmployeeDAO {
 
-	protected EmployeeDaoImpl(Class<Employee> entityClass) {
-		super(entityClass);
+	protected EmployeeDaoImpl() {
+		super(Employee.class);
 		// TODO Auto-generated constructor stub
 	}
 

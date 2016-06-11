@@ -1,58 +1,61 @@
 <wicket:extend xmlns:wicket="http://wicket.apache.org">
-	<div id="wrapper-panel-frame" class="ui-corner-all">
-		<form wicket:id="aircraft-form">
-			<table>
-				<tr>
+	<form wicket:id="aircraft-form">
+		<table>
+			<!-- <tr>
 					<td><b><wicket:message key="photo" />: </b></td>
 					<td><input type="file" name="pic" accept="image/*"
 						wicket:id="photo-upload" /><br>
 						<div wicket:id="progress"></div></td>
 
-				</tr>
+				</tr> -->
 
-				<tr>
-					<td><b><wicket:message key="aircraft.model" />: </b></td>
-					<td><select wicket:id="aircraftModel"></select></td>
-				</tr>
-				<wicket:enclosure child="1-part-number">
-					<tr>
+			<tr>
+				<td><b><wicket:message key="aircraft.model" />: </b></td>
+				<td><select wicket:id="aircraftModel"></select></td>
+			</tr>
 
-						<td><b><wicket:message key="aircraft.number" />: </b></td>
-						<td><input type="text" size="2" wicket:id="1-part-number" />-<input
-							type="text" size="5" wicket:id="2-part-number" /></td>
-					</tr>
-				</wicket:enclosure>
-				<tr>
-					<td><b><wicket:message key="aircraft.dateOfPurchase" />:
-					</b></td>
-					<td><input type="date" wicket:id="dateOfPurchase" /></td>
-				</tr>
+			<tr>
 
-				<tr>
-					<td><b><wicket:message key="aircraft.manufactureDate" />:
-					</b></td>
-					<td><input type="date" wicket:id="manufactureDate" /></td>
-				</tr>
+				<td><b><wicket:message key="aircraft.number" />: </b></td>
+				<td><input type="text" size="2" wicket:id="1-part-number" />-<input
+					type="text" size="5" wicket:id="2-part-number" /></td>
+			</tr>
+			<tr>
+				<td><b><wicket:message key="aircraft.dateOfPurchase" />: </b></td>
+				<td><input wicket:id="dateOfPurchase" type="text"></td>
+			</tr>
 
-				<tr>
-					<td><b><wicket:message key="aircraft.totalFlight" />: </b></td>
-					<td><input type="number" wicket:id="totalFlight" /></td>
-				</tr>
+			
+			<tr>
+				<td><b><wicket:message key="aircraft.manufactureDate" />: </b></td>
+				<td><input wicket:id="manufactureDate" type="text"></td>
+			</tr>
+			
 
-				<tr>
-					<td><button type="submit" wicket:id="save">
-							<wicket:message key="btn.save" />
-						</button></td>
+			<tr>
+				<td><b><wicket:message key="aircraft.totalFlight" />: </b></td>
+				<td><input type="number" wicket:id="totalFlight" /></td>
+			</tr>
+			
+			<tr>
+				<td><b><wicket:message key="aircraft.state" />: </b></td>
+				<td><select wicket:id="aircraftState"></select></td>
+			</tr>
 
-					<td><button wicket:id="cancel">
-							<wicket:message key="btn.cancel" />
-						</button></td>
+			<tr>
+				<td><button type="submit" wicket:id="save">
+						<wicket:message key="btn.save" />
+					</button></td>
 
-					<td></td>
-				</tr>
-			</table>
-		</form>
-		<div wicket:id="feedback"></div>
-	</div>
+				<td><button wicket:id="cancel">
+						<wicket:message key="btn.cancel" />
+					</button></td>
+
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	<div wicket:id="feedback"></div>
+
 
 </wicket:extend>

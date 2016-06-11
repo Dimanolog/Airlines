@@ -34,6 +34,8 @@ public class Aircraft implements Serializable {
 	private AircraftState aircraftState;
 	@OneToMany(mappedBy = "aircraft", fetch = FetchType.LAZY)
 	private Set<Flight> flights;
+	
+	
 
 	public String getAircraftsNumber() {
 		return aircraftsNumber;

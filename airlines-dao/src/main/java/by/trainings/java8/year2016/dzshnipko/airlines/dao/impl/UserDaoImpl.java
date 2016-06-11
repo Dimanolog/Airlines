@@ -8,6 +8,7 @@ import javax.persistence.criteria.Root;
 import javax.xml.namespace.QName;
 
 import org.springframework.stereotype.Repository;
+
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AbstractFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.UserDAO;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AircraftModel_;
@@ -23,7 +24,7 @@ public class UserDaoImpl extends AbstractDaoImpl<User, Long> implements UserDAO 
 	}
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+	protected void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
 			Root<User> from) {
 		// TODO Auto-generated method stub
 	}

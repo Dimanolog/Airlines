@@ -35,6 +35,7 @@ public class EmployeeListPanel extends Panel {
 	private EmployeeService employeeService;
 	@Inject
 	private DateUtil dateUtil;
+	public static final String DEFAULT_IMAGE_PATH = "/images/no-image.png";
 
 	public EmployeeListPanel(String id) {
 		super(id);
@@ -43,14 +44,21 @@ public class EmployeeListPanel extends Panel {
 
 	@Override
 	protected void onInitialize() {
+		 super.onInitialize();
 
 		EmployeeDataProvider provider = new EmployeeDataProvider();
 		DataView<Employee> dataView = new DataView<Employee>("rows", provider, 20) {
 			@Override
 			protected void populateItem(Item<Employee> item) {
 				Employee employee = item.getModelObject();
+				String photoPath;
+				if (employee.getPhoto() != null) {
+					photoPath = employee.getPhoto();
+				} else {
+					photoPath = DEFAULT_IMAGE_PATH;
+				}
 								
-				item.add(new Image("photo", new ContextRelativeResource(employee.getPhoto())));
+				item.add(new Image("photo", new ContextRelativeResource(photoPath)));
 				item.add(new Label("fullname", employee.getFullName()));
 
 				EnumChoiceRenderer<Specialty> specialtyRenderer = new EnumChoiceRenderer<Specialty>();
@@ -91,6 +99,7 @@ public class EmployeeListPanel extends Panel {
 
 		add(new OrderByBorder("sort-fullname", Employee_.surname, provider));
 		add(new OrderByBorder("sort-specialty", Employee_.specialty, provider));
+		add(new OrderByBorder("sort-gender", Employee_.gender, provider));
 		add(new OrderByBorder("sort-age", Employee_.dateOfBirth, provider));
 		add(new OrderByBorder("sort-total-flight", Employee_.totalFlight, provider));
 
@@ -126,7 +135,7 @@ public class EmployeeListPanel extends Panel {
 
 		@Override
 		public IModel<Employee> model(Employee employee) {
-			return new Model(employee);
+			return new Model<Employee>(employee);
 		}
 
 	}

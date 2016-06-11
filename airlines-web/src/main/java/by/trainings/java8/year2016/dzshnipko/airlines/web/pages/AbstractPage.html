@@ -7,31 +7,28 @@
 <link
 	href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold'
 	rel='stylesheet' type='text/css' />
-<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Audiowide'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="style.css" type="text/css" media="screen"
 	title="Stylesheet" />
 <link rel="stylesheet" href="custom.css" type="text/css" media="screen"
 	title="Stylesheet" />
-	
+
 <wicket:header-items />
 </head>
 
 <body>
 	<header>
-		<div class="header-bg">
-			<img src="images/headerImage.jpg" alt="картинка таки" width="456"
-				height="166">
-
-		</div>
-		<div class="content">
-			<wicket:container wicket:id="menu-panel"></wicket:container>
-			<wicket:child />
-		</div>
+		<wicket:container wicket:id="menu-panel"></wicket:container>
 	</header>
+	<div class="content">
+		<wicket:child />
+	</div>
+	<br/>
+	<div wicket:id="absFeedback"></div>
+
 	<div class="ft" wicket:id="footer">
-		<br />
-		<br />
-		<br /> @<span wicket:id="current-year" />
+		<br /> <br /> <br /> @<span wicket:id="current-year" />
 	</div>
 	<div wicket:id="language-select" class="language-comp"></div>
 </body>

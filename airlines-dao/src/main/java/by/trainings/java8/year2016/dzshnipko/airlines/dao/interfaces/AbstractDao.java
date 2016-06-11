@@ -24,6 +24,8 @@ public interface AbstractDao<T, ID> {
     Long count(AbstractFilter filter);
     
     List<T> find(AbstractFilter filter);
+
+	
     
     
 }

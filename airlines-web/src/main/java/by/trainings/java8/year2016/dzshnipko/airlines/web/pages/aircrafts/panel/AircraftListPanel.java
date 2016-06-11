@@ -51,7 +51,7 @@ public class AircraftListPanel extends Panel {
 
 	@Override
 	protected void onInitialize() {
-
+		super.onInitialize();
 		AircraftDataProvider provider = new AircraftDataProvider();
 		DataView<Aircraft> dataView = new DataView<Aircraft>("rows", provider, 20) {
 			@Override
@@ -100,7 +100,7 @@ public class AircraftListPanel extends Panel {
 				item.add(new Link<Void>("delete-link") {
 					@Override
 					public void onClick() {
-						
+
 						service.delete(aircraft);
 
 					}
@@ -110,7 +110,7 @@ public class AircraftListPanel extends Panel {
 		};
 		add(dataView);
 		add(new PagingNavigator("paging", dataView));
-
+		add(new OrderByBorder("sort-aircraft-state", Aircraft_.totalFlight, provider));
 		add(new OrderByBorder("sort-aircraft-model", Aircraft_.aircraftModel, provider));
 		add(new OrderByBorder("sort-number", Aircraft_.aircraftsNumber, provider));
 		add(new OrderByBorder("sort-aircraft-age", Aircraft_.manufactureDate, provider));

@@ -232,6 +232,16 @@
 				<artifactId>wicket-kendo-ui</artifactId>
 				<version>${wicket.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.googlecode.wicket-jquery-ui</groupId>
+				<artifactId>wicket-kendo-ui-theme-default</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.wicket-jquery-ui</groupId>
+				<artifactId>wicket-kendo-ui-culture</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
 
 
 		</dependencies>

@@ -59,32 +59,33 @@
 	<entry key="employee.birthday.date">Дата рождения</entry>
 	<entry key="employee.job.description">Краткая характеристика</entry>
 	<entry key="employee.status">Статус сотрудника</entry>
+	<entry key="employee.employment.date">Дата найма</entry>
 	
 		
 	<!-- Specialty -->
-	<entry key="specialty.firstPilot">Первый пилот</entry>
-	<entry key="specialty.secondPilot">Второй пилот</entry>
-	<entry key="specialty.flightEngineer">Бортинжинер</entry>
-	<entry key="specialty.navigator">Штурман</entry>
-	<entry key="specialty.radioman">Радист</entry>
-	<entry key="specialty.steward">Стюард</entry>
-	<entry key="specialty.administrator">Aдминистратор</entry>
-	<entry key="specialty.dispatcher">Диспетчер</entry>
+	<entry key="Specialty.firstPilot">Первый пилот</entry>
+	<entry key="Specialty.secondPilot">Второй пилот</entry>
+	<entry key="Specialty.flightEngineer">Бортинжинер</entry>
+	<entry key="Specialty.navigator">Штурман</entry>
+	<entry key="Specialty.radioman">Радист</entry>
+	<entry key="Specialty.steward">Стюард</entry>
+	<entry key="Specialty.administrator">Aдминистратор</entry>
+	<entry key="Specialty.dispatcher">Диспетчер</entry>
 	
 	<!-- Employee Status -->
-	<entry key="emloyeeStatus.ok">Готов к труду и обороне!</entry>
-	<entry key="emloyeeStatus.fired">Уволен</entry>
-	<entry key="emloyeeStatus.onHoliday">Отпуск</entry>
-	<entry key="emloyeeStatus.Parentalleave">Декрет</entry>
-	<entry key="emloyeeStatus.retired">В отставке</entry>
+	<entry key="EmloyeeStatus.ok">Готов к труду и обороне!</entry>
+	<entry key="EmloyeeStatus.fired">Уволен</entry>
+	<entry key="EmloyeeStatus.onHoliday">Отпуск</entry>
+	<entry key="EmloyeeStatus.Parentalleave">Декрет</entry>
+	<entry key="EmloyeeStatus.retired">В отставке</entry>
 	
 	<!-- Enum aircraft state -->
-	<entry key="aircraftState.ready">Готов</entry>
-	<entry key="aircraftState.decommissioned">Списан</entry>
-	<entry key="aircraftState.repair">В ремонте</entry>
-	<entry key="aircraftState.sold">Продан</entry>
-	<entry key="aircraftState.inFlight">На задании</entry>
-	<entry key="aircraftState.secretMission">???</entry>
+	<entry key="AircraftState.ready">Готов</entry>
+	<entry key="AircraftState.decommissioned">Списан</entry>
+	<entry key="AircraftState.repair">В ремонте</entry>
+	<entry key="AircraftState.sold">Продан</entry>
+	<entry key="AircraftState.inFlight">На задании</entry>
+	<entry key="AircraftState.secretMission">???</entry>
 	
 	<!-- User -->
 	<entry key="user.role">Роль пользователя</entry> 
@@ -95,8 +96,8 @@
 	
 	
 	<!-- gender -->
-	<entry key="gender.male">Мужской</entry>
-	<entry key="gender.female">Женский</entry>
+	<entry key="Gender.male">Мужской</entry>
+	<entry key="Gender.female">Женский</entry>
 	
 	<!-- others -->
 	<entry key="photo">Фото</entry>

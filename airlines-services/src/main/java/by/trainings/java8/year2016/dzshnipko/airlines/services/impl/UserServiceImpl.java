@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.commons.validator.routines.EmailValidator;
-import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.springframework.stereotype.Service;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.UserFilter;
@@ -48,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void delete(User user) {
-		dao.delete(user.getId());
+		//dao.delete(user);
 
 	}
 

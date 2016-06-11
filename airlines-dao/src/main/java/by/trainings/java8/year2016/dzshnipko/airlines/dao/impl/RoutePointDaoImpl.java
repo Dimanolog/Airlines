@@ -17,7 +17,7 @@ public class RoutePointDaoImpl extends AbstractDaoImpl<RoutePoint, Long> {
 	}
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+	protected void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
 			Root<RoutePoint> from) {
 		// TODO Auto-generated method stub
 		

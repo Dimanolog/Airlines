@@ -27,8 +27,9 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         this.entityClass = entityClass;
                        
     }
-    	
-    protected abstract void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<T> from);
+    
+    
+	protected abstract void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<T> from);
 
     @Override
     public List<T> getAll() {

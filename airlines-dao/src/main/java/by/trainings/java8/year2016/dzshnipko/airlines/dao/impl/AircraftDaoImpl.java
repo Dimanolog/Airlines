@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 
 import org.hibernate.jpa.criteria.OrderImpl;
 import org.springframework.stereotype.Repository;
+
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AbstractFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.AircraftDAO;
@@ -23,13 +24,9 @@ public class AircraftDaoImpl extends AbstractDaoImpl<Aircraft, String> implement
 		super(Aircraft.class);
 		// TODO Auto-generated constructor stub
 	}
-	
-
-	
-
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+	protected void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
 			Root<Aircraft> from) {
 		// TODO Auto-generated method stub
 		

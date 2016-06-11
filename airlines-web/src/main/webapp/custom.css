@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+
 .navbar-menu{
 
    margin: 0;
@@ -48,6 +48,12 @@ font-size: 32px;
 .navbar-menu > ul li a:hover:not(.active) {
     background-color: #cc0000;
 }
+
+.navbar-menu > ul li a:active {
+        background: #f1d74c;
+        color: #ffffff;
+    }
+
 
 .red-link {
 	font-weight: bold;

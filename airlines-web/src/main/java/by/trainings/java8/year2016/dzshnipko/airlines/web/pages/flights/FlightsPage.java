@@ -4,9 +4,10 @@ import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights.panel.FlightListPanel;
 
-public class FlightsPage extends WebPage {
+public class FlightsPage extends AbstractPage{
 
 	public FlightsPage() {
 		super();

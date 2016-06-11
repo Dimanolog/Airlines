@@ -7,10 +7,11 @@ import org.apache.wicket.injection.Injector;
 import org.apache.wicket.request.Request;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
+import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 
 public class AuthorizedSession extends AuthenticatedWebSession {
 
-	private by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService userService;
+	private  UserService userService;
 
 	private User loggedUser;
 

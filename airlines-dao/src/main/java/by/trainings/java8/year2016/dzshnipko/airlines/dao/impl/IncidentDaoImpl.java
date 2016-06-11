@@ -5,6 +5,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
+
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AbstractFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.IncidentDAO;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Incident;
@@ -18,7 +19,7 @@ public class IncidentDaoImpl extends AbstractDaoImpl<Incident, Long> implements 
 	}
 
 	@Override
-	public void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
+	protected void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq,
 			Root<Incident> from) {
 		// TODO Auto-generated method stub
 		

@@ -1,36 +1,36 @@
 <wicket:panel xmlns:wicket="http://wicket.apache.org">
-	<wicket:panel>
-		<table class="list-table">
-			<thead>
-				<tr>
-					<th><wicket:message key="photo" /></th>
-					<th><a wicket:id="sort-aircraft-model"><wicket:message
-								key="aircraft.model" /></a></th>
-					<th><a wicket:id="sort-number"><wicket:message
-								key="aircraft.number" /></a></th>
-					<th><a wicket:id="sort-aircraft-age"><wicket:message
-								key="aircraft.age" /></a></th>
-					<th><a wicket:id="sort-totalFlight"><wicket:message
-								key="aircraft.totalFlight" /></a></th>
-								<th><a wicket:id="sort-aircraft-state"><wicket:message
-								key="aircraft.state" /></a></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr wicket:id="rows">
-					<td><img wicket:id="photo"
-						style="width: 128px; height: 96px;" /></td>
-					<td><a wicket:id="aircraft-model-link"> <span wicket:id="aircraft-model-name"/>
-					</a></td>
-					<td><span wicket:id="aircraft-number" /></td>
-					<td><span wicket:id="aircraft-age"/></td>
-					<td><span wicket:id="aircraft-totalFlight" /></td>
-					<td><span wicket:id="aircraft-state"/></td>
-					<td><a wicket:id="delete-link">delete</a>/<a
-						wicket:id="edit-link">edit</a></td>
-				</tr>
-			</tbody>
-		</table>
-		<div wicket:id="paging"></div>
 
-	</wicket:panel>
+	<table class="list-table">
+		<thead>
+			<tr>
+				<th><wicket:message key="photo" /></th>
+				<th><a wicket:id="sort-aircraft-model"><wicket:message
+							key="aircraft.model" /></a></th>
+				<th><a wicket:id="sort-number"><wicket:message
+							key="aircraft.number" /></a></th>
+				<th><a wicket:id="sort-aircraft-age"><wicket:message
+							key="aircraft.age" /></a></th>
+				<th><a wicket:id="sort-totalFlight"><wicket:message
+							key="aircraft.totalFlight" /></a></th>
+				<th><a wicket:id="sort-aircraft-state"><wicket:message
+							key="aircraft.state" /></a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr wicket:id="rows">
+				<td><img wicket:id="photo" style="width: 128px; height: 96px;" /></td>
+				<td><a wicket:id="aircraft-model-link"> <span
+						wicket:id="aircraft-model-name" />
+				</a></td>
+				<td><span wicket:id="aircraft-number" /></td>
+				<td><span wicket:id="aircraft-age" /></td>
+				<td><span wicket:id="aircraft-totalFlight" /></td>
+				<td><span wicket:id="aircraft-state" /></td>
+				<td><a wicket:id="delete-link">delete</a>/<a
+					wicket:id="edit-link">edit</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div wicket:id="paging"></div>
+
+</wicket:panel>

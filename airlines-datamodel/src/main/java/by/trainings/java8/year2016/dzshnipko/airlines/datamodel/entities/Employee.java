@@ -3,14 +3,19 @@ package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
+import org.hibernate.type.TrueFalseType;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeStatus;
@@ -19,7 +24,6 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 
 @Entity
 public class Employee extends AbstractModel {
-	
 	
 	@Column
     @Enumerated(value = EnumType.ORDINAL)
@@ -37,7 +41,7 @@ public class Employee extends AbstractModel {
 	private String photo;
 	@Column
 	private String description; 
-	@Column
+	@Column 
 	private Date employmentDate;
 	@Column
 	private Integer totalFlight; 
@@ -45,8 +49,12 @@ public class Employee extends AbstractModel {
     @Enumerated(value = EnumType.ORDINAL)
 	private  EmloyeeStatus employeeStatus;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
+/*	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn*/
+	
+	@MapsId
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id")
 	private User user;
 	
     @ManyToMany(targetEntity = Flight.class, fetch = FetchType.LAZY, mappedBy="employees")
