@@ -1,25 +1,22 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;;
 
 @Entity
-public class User implements Serializable {
+public class User  extends AbstractModel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	private Long id;
-	/*@MapsId
+	
 	@OneToOne
-	@JoinColumn(name = "id")*/
-	/*private Employee employee;*/
+	@JoinColumn(name="employee_id")
+	private Employee employee;
 	@Column
 	private UserRole userRole;
 	@Column
@@ -61,20 +58,14 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	/*public Employee getEmployee() {
+	public Employee getEmployee() {
 		return employee;
 	}
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
-	}*/
-
-	public Long getId() {
-		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	
 }

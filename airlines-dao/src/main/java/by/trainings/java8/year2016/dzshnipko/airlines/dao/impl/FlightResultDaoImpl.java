@@ -24,6 +24,14 @@ public class FlightResultDaoImpl extends AbstractDaoImpl<FlightResult, Long> {
 		
 	}
 
+	@Override
+	protected void fetchLazyInitilization(AbstractFilter filter, Root<FlightResult> from) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
 	
 		
 }

@@ -1,30 +1,25 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
-import org.hibernate.type.TrueFalseType;
-
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeStatus;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 
 
 @Entity
 public class Employee extends AbstractModel {
-	
+		
+	private static final long serialVersionUID = 1L;
 	@Column
     @Enumerated(value = EnumType.ORDINAL)
 	private Specialty specialty;
@@ -48,17 +43,9 @@ public class Employee extends AbstractModel {
 	@Column
     @Enumerated(value = EnumType.ORDINAL)
 	private  EmloyeeStatus employeeStatus;
-	
-/*	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn*/
-	
-	@MapsId
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id")
-	private User user;
-	
+		
     @ManyToMany(targetEntity = Flight.class, fetch = FetchType.LAZY, mappedBy="employees")
-	private Set<Flight>flights;
+	private Set<Flight>flights= new HashSet<Flight>();
 	
 	
 	public Integer getTotalFlight() {
@@ -132,15 +119,7 @@ public class Employee extends AbstractModel {
 	public void setEmploymentDate(Date employmentDate) {
 		this.employmentDate = employmentDate;
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
+	
 	public EmloyeeStatus getEmployeeStatus() {
 		return employeeStatus;
 	}

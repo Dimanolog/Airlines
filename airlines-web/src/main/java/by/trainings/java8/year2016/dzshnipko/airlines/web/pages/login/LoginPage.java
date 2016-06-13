@@ -50,11 +50,7 @@ public class LoginPage extends AbstractPage {
                 }
             }
         });
-
         add(form);
-
-        add(new FeedbackPanel("feedbackpanel"));
-
     }
 
 }

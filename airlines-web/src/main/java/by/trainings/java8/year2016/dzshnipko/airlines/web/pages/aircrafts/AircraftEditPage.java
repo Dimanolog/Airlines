@@ -27,6 +27,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraf
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.AircraftState;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.AircraftModelService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.AircraftService;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.AircraftModelChoiceRenderer;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 
@@ -71,11 +72,11 @@ public class AircraftEditPage extends AbstractPage {
 		part1Number.setVisible(update == false);
 		form.add(part1Number);
 
-		final DatePicker dateOfPurchase = new DatePicker("dateOfPurchase", getLocaleDatePattern());
+		final DatePicker dateOfPurchase = new DatePicker("dateOfPurchase", AuthorizedSession.get().getLocaleDatePattern());
 		dateOfPurchase.setRequired(true);
 		form.add(dateOfPurchase);
 
-		final DatePicker manufactureDate = new DatePicker("manufactureDate", getLocaleDatePattern());
+		final DatePicker manufactureDate = new DatePicker("manufactureDate", AuthorizedSession.get().getLocaleDatePattern());
 		manufactureDate.setRequired(true);
 		form.add(manufactureDate);
 

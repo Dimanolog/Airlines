@@ -25,6 +25,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeSta
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Gender;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.EmployeeService;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 
 public class EmployeeEditPage extends AbstractPage {
@@ -73,11 +74,11 @@ public class EmployeeEditPage extends AbstractPage {
 		genderChoice.setRequired(true);
 		form.add(genderChoice);
 
-		final DatePicker birthdayDatepicker = new DatePicker("dateOfBirth", getLocaleDatePattern());
+		final DatePicker birthdayDatepicker = new DatePicker("dateOfBirth", AuthorizedSession.get().getLocaleDatePattern());
 		birthdayDatepicker.setRequired(true);
 		form.add(birthdayDatepicker);
 
-		final DatePicker employmentDatepicker = new DatePicker("employmentDate", getLocaleDatePattern());
+		final DatePicker employmentDatepicker = new DatePicker("employmentDate", AuthorizedSession.get().getLocaleDatePattern());
 		employmentDatepicker.setRequired(true);
 		form.add(employmentDatepicker);
 

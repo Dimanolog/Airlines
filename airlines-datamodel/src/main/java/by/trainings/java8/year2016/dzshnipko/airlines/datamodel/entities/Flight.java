@@ -1,18 +1,21 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+
 @Entity
-public class Flight extends AbstractModel
-{
+public class Flight extends AbstractModel {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Aircraft aircraft;
@@ -21,20 +24,14 @@ public class Flight extends AbstractModel
 	@Column
 	private String departureAirport;
 	@Column
-	private Date departureTime; 
+	private Date departureTime;
 	@Column
 	private String destinationPointName;
 	@Column
 	private String destinationAirport;
 	@Column
 	private Date arrivalTime;
-	@OneToMany(fetch = FetchType.LAZY)
-	private Set<RoutePoint> route;
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	private FlightResult flightResult;
-	
+    @JoinTable(name = "employee_2_flight", joinColumns = { @JoinColumn(name = "flight_id") }, inverseJoinColumns = { @JoinColumn(name = "employee_id") })
 	@ManyToMany(targetEntity = Employee.class, fetch = FetchType.LAZY)
 	private Set<Employee> employees;
 
@@ -64,14 +61,6 @@ public class Flight extends AbstractModel
 
 	public Date getАrrivalTime() {
 		return arrivalTime;
-	}
-
-	public Set<RoutePoint> getRoute() {
-		return route;
-	}
-
-	public FlightResult getFlightResult() {
-		return flightResult;
 	}
 
 	public Set<Employee> getEmployees() {
@@ -106,14 +95,6 @@ public class Flight extends AbstractModel
 		this.arrivalTime = arrivalTime;
 	}
 
-	public void setRoute(Set<RoutePoint> route) {
-		this.route = route;
-	}
-
-	public void setFlightResult(FlightResult flightResult) {
-		this.flightResult = flightResult;
-	}
-
 	public void setEmployees(Set<Employee> employees) {
 		this.employees = employees;
 	}
@@ -122,22 +103,28 @@ public class Flight extends AbstractModel
 		return arrivalTime;
 	}
 
-
 	public void setArrivalTime(Date arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 	
-	public String getDeparturePoint(){
-			
-		return String.format("%s (%s)", departurePointName, departureAirport);
-		
+	public void addEmployee(Employee employee){
+		employees.add(employee);
 	}
 	
-	public String getDestinationPoint(){
-		
-		return String.format("%s (%s)", destinationPointName, destinationAirport);
-		
+	public void addEmployeeCollection(Collection<Employee> employees){
+		employees.addAll(employees);
+	}
+	
+	public String getFullDeparturePoint() {
+
+		return String.format("%s (%s)", departurePointName, departureAirport);
+
 	}
 
-	
+	public String getFullDestinationPoint() {
+
+		return String.format("%s (%s)", destinationPointName, destinationAirport);
+
+	}
+
 }

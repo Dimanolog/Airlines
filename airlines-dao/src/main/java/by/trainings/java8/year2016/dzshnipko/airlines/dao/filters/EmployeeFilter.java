@@ -7,6 +7,8 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 
 public class EmployeeFilter extends AbstractFilter {
 	
+	private static final long serialVersionUID = -474582529555089889L;
+
 	private Specialty specialty;
 	
 	private String name;
@@ -107,6 +109,5 @@ public class EmployeeFilter extends AbstractFilter {
 	public void setEmployeeStatus(EmloyeeStatus employeeStatus) {
 		this.employeeStatus = employeeStatus;
 	}
-	
 	
 }

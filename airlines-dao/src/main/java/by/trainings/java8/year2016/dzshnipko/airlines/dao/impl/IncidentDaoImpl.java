@@ -25,6 +25,12 @@ public class IncidentDaoImpl extends AbstractDaoImpl<Incident, Long> implements 
 		
 	}
 
+	@Override
+	protected void fetchLazyInitilization(AbstractFilter filter, Root<Incident> from) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }

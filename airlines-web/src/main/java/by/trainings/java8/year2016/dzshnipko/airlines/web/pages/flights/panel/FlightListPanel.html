@@ -2,22 +2,28 @@
 	<table class="list-table">
 		<thead>
 			<tr>
-				<th><wicket:message key="fligths.aircraft"/></th>
-				<th><a wicket:id="sort-destination-point"><wicket:message key="fligths.destination.point"/></a></th>
-				<th><a wicket:id="sort-destination-time"><wicket:message key="fligths.destination.time"/></a></th>
-				<th><a wicket:id="sort-departure-point"><wicket:message key="fligths.departure.point"/></a></th>
-				<th><a wicket:id="sort-departure-time"><wicket:message key="fligths.departure.time"/></a></th>
-				
+				<th><wicket:message key="fligths.aircraft" /></th>
+				<th><a wicket:id="sort-destination-point"><wicket:message
+							key="fligths.destination.point" /></a></th>
+				<th><a wicket:id="sort-destination-time"><wicket:message
+							key="fligths.destination.time" /></a></th>
+				<th><a wicket:id="sort-departure-point"><wicket:message
+							key="fligths.departure.point" /></a></th>
+				<th><a wicket:id="sort-departure-time"><wicket:message
+							key="fligths.departure.time" /></a></th>
+
 			</tr>
 		</thead>
 		<tbody>
 			<tr wicket:id="rows">
-				<td><span wicket:id="aircraft"/></td>
-				<td><span wicket:id="destination-point"/></td>
-				<td><span wicket:id="destination-time"/></td>
-				<td><span wicket:id="departure-point"/></td>
-				<td><span wicket:id="departure-time"/></td>
-				<td><a wicket:id="delete-link">delete</a>/<a wicket:id="edit-link">edit</a></td>
+				<td><span wicket:id="aircraft" /></td>
+				<td><span wicket:id="destination-point" /></td>
+				<td><span wicket:id="destination-time" /></td>
+				<td><span wicket:id="departure-point" /></td>
+				<td><span wicket:id="departure-time" /></td>
+				<td><a wicket:id="edit-link"><wicket:message
+							key="edit"/></a>/<a wicket:id="edit-crew"><span
+						wicket:id="edit-crew-label"> </span></a></td>
 			</tr>
 		</tbody>
 	</table>

@@ -55,5 +55,11 @@ public class UserDaoImpl extends AbstractDaoImpl<User, Long> implements UserDAO 
      
      return q.getSingleResult();
  	}
+
+	@Override
+	protected void fetchLazyInitilization(AbstractFilter filter, Root<User> from) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

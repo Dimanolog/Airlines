@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftModelFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AircraftModel;
 

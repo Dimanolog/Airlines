@@ -56,5 +56,12 @@ public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long> impl
         }
 					
 	}
+
+
+	@Override
+	protected void fetchLazyInitilization(AbstractFilter filter, Root<AircraftModel> from) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 

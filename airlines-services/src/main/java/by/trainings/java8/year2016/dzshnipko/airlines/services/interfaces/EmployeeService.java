@@ -20,7 +20,7 @@ public interface EmployeeService {
 
 	@Transactional
 	void delete(Employee employee);
-
+	@Transactional
 	void saveOrUpdate(Employee employee);
 
 }

@@ -1,0 +1,71 @@
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="crew-form">
+		<table style="width: 80%">
+			
+			<wicket:enclosure child="firstPilot">
+				<tr>
+					<td><b><wicket:message key="Specialty.firstPilot" />: </b></td>
+					<td><select wicket:id="firstPilot"></select></td>
+				</tr>
+			</wicket:enclosure>
+			<wicket:enclosure child="secondPilot">
+				<tr>
+					<td><b><wicket:message key="Specialty.secondPilot" />: </b></td>
+					<td><select wicket:id="secondPilot"></select></td>
+				</tr>
+			</wicket:enclosure>
+			<wicket:enclosure child="flightEngineer">
+				<tr>
+					<td><b><wicket:message key="Specialty.flightEngineer" />:
+					</b></td>
+					<td><select wicket:id="flightEngineer"></select></td>
+				</tr>
+			</wicket:enclosure>
+			
+			<wicket:enclosure child="navigator">
+				<tr>
+					<td><b><wicket:message key="Specialty.navigator" />: </b></td>
+					<td><select wicket:id="navigator"></select></td>
+				</tr>
+			</wicket:enclosure>
+			
+			<wicket:enclosure child="radioman">
+				<tr>
+					<td><b><wicket:message key="Specialty.radioman" />: </b></td>
+					<td><select wicket:id="radioman"></select></td>
+				</tr>
+			</wicket:enclosure>
+			
+			<wicket:enclosure child="stewardsList">
+				<tr>
+					<td colspan="2"><b><wicket:message key="Specialty.steward" />:
+					</b></td>
+					<td><span wicket:id="stewardsList"></span></td>
+					<td colspan="2"><b><wicket:message key="Specialty.steward" />:
+					</b></td>
+					<td><select wicket:id="stewardsList2"></select></td>
+				</tr>
+			</wicket:enclosure>
+			
+			<tr>
+				<td colspan="2"><b><wicket:message key="Specialty.steward" />:
+				</b></td>
+				<td><span wicket:id="stewardsList2"></span></td>
+			</tr>
+			<tr>
+				<td><button type="submit" wicket:id="save">
+						<wicket:message key="btn.save" />
+					</button></td>
+
+				<td><button wicket:id="cancel">
+						<wicket:message key="btn.cancel" />
+					</button></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+
+
+
+</wicket:extend>

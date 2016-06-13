@@ -1,10 +1,6 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages;
 
-import java.time.chrono.IsoChronology;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.FormatStyle;
 import java.util.Calendar;
-import java.util.Locale;
 
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.head.IHeaderResponse;
@@ -23,8 +19,12 @@ import by.trainings.java8.year2016.dzshnipko.airlines.web.component.panel.MenuPa
 public abstract class AbstractPage extends WebPage {
 
 	
-	private String localeTimePattern;
-	private String localeDatePattern;
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public AbstractPage() {
 		super();
@@ -37,16 +37,16 @@ public abstract class AbstractPage extends WebPage {
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
-		Locale locale =this.getSession().getLocale();
-		localeTimePattern = DateTimeFormatterBuilder.getLocalizedDateTimePattern(null, FormatStyle.SHORT,
-				IsoChronology.INSTANCE, locale);
-		localeDatePattern = DateTimeFormatterBuilder.getLocalizedDateTimePattern(FormatStyle.MEDIUM, null,
-				IsoChronology.INSTANCE, locale);
-
+		
 		add(new MenuPanel("menu-panel"));
 		add(new LanguageSelectionComponent("language-select"));
 
 		AbstractReadOnlyModel<Integer> yearModel = new AbstractReadOnlyModel<Integer>() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public Integer getObject() {
 				return Calendar.getInstance().get(Calendar.YEAR);
@@ -69,11 +69,5 @@ public abstract class AbstractPage extends WebPage {
 
 	}
 
-	public String getLocaleTimePattern() {
-		return localeTimePattern;
-	}
-
-	public String getLocaleDatePattern() {
-		return localeDatePattern;
-	}
+	
 }

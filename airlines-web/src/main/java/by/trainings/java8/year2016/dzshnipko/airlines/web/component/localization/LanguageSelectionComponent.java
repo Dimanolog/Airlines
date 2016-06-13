@@ -10,6 +10,8 @@ import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.Model;
+
+import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.LocaleChoiceRenderer;
 
 
@@ -30,6 +32,7 @@ public class LanguageSelectionComponent extends Panel {
         super.onInitialize();
 
         Locale locale = Session.get().getLocale();
+        
 
         DropDownChoice<Locale> dropDownChoice = new DropDownChoice<Locale>("language", Model.of(locale), SUPPORTED_LOCALES, LocaleChoiceRenderer.INSTANCE);
         add(dropDownChoice);
@@ -38,7 +41,7 @@ public class LanguageSelectionComponent extends Panel {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
                 Locale selectedLocale = dropDownChoice.getModelObject();
-                Session.get().setLocale(selectedLocale);
+                AuthorizedSession.get().setLocale(selectedLocale);
                 setResponsePage(getPage());
             }
         });

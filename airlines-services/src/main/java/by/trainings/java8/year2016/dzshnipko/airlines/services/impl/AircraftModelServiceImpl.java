@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftModelFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.AircraftModelDAO;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AircraftModel;

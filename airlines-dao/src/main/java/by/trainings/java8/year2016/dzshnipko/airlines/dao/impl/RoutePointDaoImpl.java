@@ -22,5 +22,11 @@ public class RoutePointDaoImpl extends AbstractDaoImpl<RoutePoint, Long> {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	protected void fetchLazyInitilization(AbstractFilter filter, Root<RoutePoint> from) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

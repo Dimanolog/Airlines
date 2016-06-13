@@ -21,6 +21,8 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.home.HomePage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.validators.EmailWebValidator;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.validators.LoginValidator;
 
 public class UserRegisterPage extends AbstractPage {
 
@@ -41,11 +43,13 @@ public class UserRegisterPage extends AbstractPage {
 		CompoundPropertyModel<User> compoundModel = new CompoundPropertyModel<User>(user);
 		Form<User> userForm = new UserForm<>("user-form", compoundModel);
 
-		RequiredTextField<String> loginFiled = new RequiredTextField<>("login");
-		userForm.add(loginFiled);
+		RequiredTextField<String> loginField = new RequiredTextField<>("login");
+		loginField.add(LoginValidator.getInstance());
+		userForm.add(loginField);
 
-		RequiredTextField<String> emailFiled = new RequiredTextField<>("email");
-		userForm.add(emailFiled);
+		RequiredTextField<String> emailFieldd = new RequiredTextField<>("email");
+		emailFieldd.add(EmailWebValidator.getInstance());
+		userForm.add(emailFieldd);
 
 		PasswordTextField passField = new PasswordTextField("password");
 		passField.add(new PatternValidator(UserService.PASSWORD_PATTERN));

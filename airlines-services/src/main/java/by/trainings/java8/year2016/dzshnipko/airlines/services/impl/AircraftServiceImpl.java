@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter;
@@ -16,7 +14,6 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.Aircra
 @Service
 public class AircraftServiceImpl implements AircraftService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(AircraftServiceImpl.class);
 	@Inject
 	private AircraftDAO dao;
 

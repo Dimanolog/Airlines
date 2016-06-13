@@ -20,9 +20,13 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.FlightFilter;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight_;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.FlightService;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.crew.EditCrewPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights.FlightEditPage;
 
 public class FlightListPanel extends Panel {
 	@Inject
@@ -37,30 +41,53 @@ public class FlightListPanel extends Panel {
 			protected void populateItem(Item<Flight> item) {
 				Flight flight = item.getModelObject();
 
-				item.add(new Label("aircraft", flight.getAircraft().getAircraftModel()));
-				item.add(new Label("destination-point", flight.getDestinationPoint()));
-				item.add(new Label("destination-time", flight.getArrivalTime()));
-				item.add(DateLabel.forDatePattern("created", Model.of(flight.getArrivalTime()), "HH:mm dd-MM-yyyy"));
+				item.add(new Label("aircraft", Model.of(flight.getAircraft().getFullName())));
+				item.add(new Label("destination-point", Model.of(flight.getFullDestinationPoint())));
+				item.add(DateLabel.forDatePattern("destination-time", Model.of(flight.getArrivalTime()),
+						AuthorizedSession.get().getLocaleDateTimePattern()));
+				item.add(new Label("departure-point", Model.of(flight.getFullDeparturePoint())));
+				item.add(DateLabel.forDatePattern("departure-time", Model.of(flight.getDepartureTime()),
+						AuthorizedSession.get().getLocaleDateTimePattern()));
+				
 
 				item.add(new Link<Void>("edit-link") {
 					@Override
 					public void onClick() {
-
+						setResponsePage(new FlightEditPage(flight));
 					}
 				});
-				item.add(new Link<Void>("delete-link") {
+				
+			/*	item.add(new Link<Void>("delete-link") {
 					@Override
 					public void onClick() {
-						
+						flightService.delete(flight);
+					}
+				});*/
+
+				Link<Void> editCrewLink = new Link("edit-crew") {
+
+					@Override
+					public void onClick() {
+						setResponsePage(new EditCrewPage(flight));
 
 					}
-				});
 
+				};
+				String addCrewLabel;
+				if(flight.getEmployees().isEmpty()){
+					addCrewLabel=getString("flights.add.crew");
+				}else{
+					addCrewLabel=getString("flights.edit.crew");
+				}
+				
+				editCrewLink.add(new Label("edit-crew-label",addCrewLabel));
+
+				item.add(editCrewLink);
 			}
 		};
+
 		add(dataView);
 		add(new PagingNavigator("paging", dataView));
-
 		add(new OrderByBorder("sort-destination-point", Flight_.destinationPointName, provider));
 		add(new OrderByBorder("sort-destination-time", Flight_.arrivalTime, provider));
 		add(new OrderByBorder("sort-departure-point", Flight_.departurePointName, provider));
@@ -74,6 +101,7 @@ public class FlightListPanel extends Panel {
 		public FlightsDataProvider() {
 			super();
 			filter = new FlightFilter();
+			filter.setFetchEmployees(true);
 			setSort((Serializable) Flight_.departureTime, SortOrder.ASCENDING);
 		}
 

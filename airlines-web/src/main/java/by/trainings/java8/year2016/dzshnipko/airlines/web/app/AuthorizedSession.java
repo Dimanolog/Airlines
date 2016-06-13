@@ -1,5 +1,10 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.app;
 
+import java.time.chrono.IsoChronology;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.FormatStyle;
+import java.util.Locale;
+
 import org.apache.wicket.Session;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
@@ -16,10 +21,15 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 	private User loggedUser;
 
 	private Roles roles;
+	
+	private String localeTimePattern;
+	private String localeDatePattern;
+	private String localeDateTimePattern;
 
 	public AuthorizedSession(Request request) {
 		super(request);
 		Injector.get().inject(this);
+		localeChanged();
 
 	}
 
@@ -50,6 +60,12 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 		return roles;
 
 	}
+	@Override
+	public Session setLocale(Locale locale) {
+		super.setLocale(locale);
+		localeChanged();
+		return this;
+	};
 
 	@Override
 	public void signOut() {
@@ -60,6 +76,28 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 
 	public User getLoggedUser() {
 		return loggedUser;
+	}
+
+	public String getLocaleTimePattern() {
+		return localeTimePattern;
+	}
+
+	public String getLocaleDatePattern() {
+		return localeDatePattern;
+	}
+
+	public String getLocaleDateTimePattern() {
+		return localeDateTimePattern;
+	}
+	
+	private void localeChanged(){
+		
+		localeTimePattern = DateTimeFormatterBuilder.getLocalizedDateTimePattern(null, FormatStyle.SHORT,
+				IsoChronology.INSTANCE, getLocale());
+		localeDatePattern = DateTimeFormatterBuilder.getLocalizedDateTimePattern(FormatStyle.MEDIUM, null,
+				IsoChronology.INSTANCE, getLocale());
+		localeDateTimePattern=DateTimeFormatterBuilder.getLocalizedDateTimePattern(FormatStyle.MEDIUM, FormatStyle.SHORT,
+				IsoChronology.INSTANCE, getLocale());
 	}
 
 }

@@ -30,7 +30,9 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
     
     
 	protected abstract void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<T> from);
-
+	
+	protected abstract void fetchLazyInitilization(AbstractFilter filter, Root<T> from);
+	
     @Override
     public List<T> getAll() {
         final CriteriaQuery<T> query = entityManager.getCriteriaBuilder().createQuery(getEntityClass());
@@ -47,6 +49,7 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
     @Override
     public T insert(final T entity) {
         entityManager.persist(entity);
+        entityManager.flush();
         return entity;
     }
 
@@ -76,10 +79,12 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         EntityManager em = getEntityManager();
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
+        
 
         CriteriaQuery<Long> cq = cb.createQuery(Long.class);
 
         Root<T> from = cq.from(getEntityClass());
+        
         // set selection
         cq.select(cb.count(from));
    
@@ -96,9 +101,14 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(getEntityClass());
         Root<T> from = cq.from(getEntityClass());
+        
+        fetchLazyInitilization(filter,  from);
+        
         cq.select(from);
         setSortProperty(filter, cq, from);
-        handleFilterParameters( filter,  cb,  cq, null);
+        handleFilterParameters( filter,  cb,  cq, from);
+        
+        
         TypedQuery<T> q = em.createQuery(cq);
         setPaging(filter, q);
         

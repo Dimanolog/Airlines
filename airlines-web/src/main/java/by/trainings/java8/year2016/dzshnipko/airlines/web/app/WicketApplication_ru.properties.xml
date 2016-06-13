@@ -26,10 +26,14 @@
 	<entry key="fligths.aircraft">Самолет</entry>
 	<entry key="fligths.departure.point">Место отправления</entry>
 	<entry key="fligths.departure.airport">Аэропорт отправления</entry>
+	<entry key="fligths.departure.airport">Аэропорт отправления</entry>
 	<entry key="fligths.destination.point">Место прибытия</entry>
 	<entry key="fligths.destination.airport">Аэропорт прибытия</entry>
 	<entry key="fligths.destination.time">Время прибытия</entry>
 	<entry key="fligths.departure.time">Время отправления</entry>
+	<entry key="flights.add.crew">Добавить экипаж</entry>
+	<entry key="flights.edit.crew">Редактировать экипаж</entry>
+	
 	
 	<!-- Employee page -->
 	<entry key="employee.header">Персонал</entry>
@@ -85,6 +89,10 @@
 	
 	<!-- others -->
 	<entry key="photo">Фото</entry>
+	<!-- Links -->
+	<entry key="delete">удалить</entry>
+	<entry key="edit">изменить</entry>
+	
 	
 	<!-- Buttons -->
 	<entry key="btn.create">cоздать</entry>
@@ -102,6 +110,7 @@
 	<entry key="error.wrong.login">Неверный эл. адрес</entry>
 	<entry key="error.not.unique.login">Введенный логин уже зарегистрирован</entry>
 	<entry key="error.not.unique.aircrafts.number">Самолет с данным бортовым номеров уже зарегистрирован</entry>
+	<entry key="error.worng.number.stweards">Неверное число стюардесc</entry>
 	
 	
 	

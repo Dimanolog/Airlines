@@ -2,6 +2,7 @@ package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,7 +17,6 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.AircraftSt
 
 @Entity
 public class Aircraft implements Serializable {
-
 	@Id
 	private String aircraftsNumber;
 	@Column
@@ -33,10 +33,8 @@ public class Aircraft implements Serializable {
 	@Enumerated(value = EnumType.ORDINAL)
 	private AircraftState aircraftState;
 	@OneToMany(mappedBy = "aircraft", fetch = FetchType.LAZY)
-	private Set<Flight> flights;
+	private Set<Flight> flights=new HashSet<Flight>();
 	
-	
-
 	public String getAircraftsNumber() {
 		return aircraftsNumber;
 	}
@@ -99,6 +97,16 @@ public class Aircraft implements Serializable {
 
 	public void setFlights(Set<Flight> flights) {
 		this.flights = flights;
+	}
+	public String getFullName()
+	{
+		return String.format("%s (%s)", aircraftModel.getName(), aircraftsNumber);
+	}
+	
+	@Override
+	public String toString() {
+		
+		return getFullName();
 	}
 
 }

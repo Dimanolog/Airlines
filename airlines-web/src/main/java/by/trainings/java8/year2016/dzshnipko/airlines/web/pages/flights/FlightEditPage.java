@@ -1,7 +1,6 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights;
 
 import java.util.List;
-import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -24,17 +23,17 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraf
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.AircraftService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.FlightService;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.AircraftChoiceRenderer;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 
 public class FlightEditPage extends AbstractPage {
 
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private FlightService flightService;
 	@Inject
 	private AircraftService aircraftService;
-
-	private Locale locale = getSession().getLocale();
 
 	private Flight flight;
 
@@ -57,6 +56,7 @@ public class FlightEditPage extends AbstractPage {
 		List<Aircraft> aircraftsList = aircraftService.find(new AircraftFilter());
 		DropDownChoice<Aircraft> aircraftChoice = new DropDownChoice<>("aircraft", aircraftsList,
 				AircraftChoiceRenderer.getInstance());
+				
 		aircraftChoice.setRequired(true);
 		form.add(aircraftChoice);
 
@@ -73,9 +73,10 @@ public class FlightEditPage extends AbstractPage {
 		form.add(departureAirport);
 
 		// DateTimePicker //
-
-		final DateTimePicker departureTimePicker = new DateTimePicker("departureTime", getLocaleDatePattern(),
-				getLocaleTimePattern());
+		String localeTimePattern = AuthorizedSession.get().getLocaleTimePattern();
+		String localeDatePattern = AuthorizedSession.get().getLocaleDatePattern();
+		final DateTimePicker departureTimePicker = new DateTimePicker("departureTime", localeDatePattern,
+				localeTimePattern);
 		departureTimePicker.setRequired(true);
 		form.add(departureTimePicker);
 
@@ -89,18 +90,16 @@ public class FlightEditPage extends AbstractPage {
 		destinanationPoint.add(lenthValidator);
 		form.add(destinationAirport);
 
-		final DateTimePicker destinationTimePicker = new DateTimePicker("arrivalTime", getLocaleDatePattern(),
-				getLocaleTimePattern());
+		final DateTimePicker destinationTimePicker = new DateTimePicker("arrivalTime", localeDatePattern,
+				localeTimePattern);
 		destinationTimePicker.setRequired(true);
 		form.add(destinationTimePicker);
-
+		
 		form.add(new SubmitLink("save") {
 			@Override
 			public void onSubmit() {
 				super.onSubmit();
-
 				flightService.saveOrUpdate(flight);
-
 				setResponsePage(new FlightsPage());
 			}
 		});
@@ -112,12 +111,6 @@ public class FlightEditPage extends AbstractPage {
 			}
 		});
 		add(form);
-		// FeedbackPanel //
-
-		final KendoFeedbackPanel jqueryfeedback = new KendoFeedbackPanel("jqueryfeedback");
-		this.add(jqueryfeedback);
-		this.add(new FeedbackPanel("feedback"));
-
 	}
 
 	private class FlightForm<T> extends Form<T> {

@@ -16,6 +16,6 @@ public interface FlightService {
     void update(Flight flight);
     @Transactional
     void delete(Flight flight);
-    
+    @Transactional
     void saveOrUpdate(Flight flight);
 }
