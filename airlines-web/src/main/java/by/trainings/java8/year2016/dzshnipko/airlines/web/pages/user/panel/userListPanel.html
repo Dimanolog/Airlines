@@ -1,8 +1,7 @@
 <wicket:panel xmlns:wicket="http://wicket.apache.org">
-<table class="list-table">
+<table class="simple-little-table" cellspacing='0'>
 		<thead>
 			<tr>
-				<th><wicket:message key="fligths.aircraft"/></th>
 				<th><a wicket:id="sort-user-login"><wicket:message key="user.login"/></a></th>
 				<th><a wicket:id="sort-user-email"><wicket:message key="user.email"/></a></th>
 				<th><a wicket:id="sort-user-role"><wicket:message key="user.role"/></a></th>
@@ -13,6 +12,8 @@
 				<td><span wicket:id="login"/></td>
 				<td><span wicket:id="email"/></td>
 				<td><span wicket:id="role"/></td>
+				<td><a wicket:id="delete-link"><wicket:message key="delete"/></a>/<a
+					wicket:id="edit-link"><wicket:message key="edit"/></a></td>
 			</tr>
 		</tbody>
 	</table>

@@ -20,7 +20,6 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.FlightFilter;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Flight_;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.FlightService;

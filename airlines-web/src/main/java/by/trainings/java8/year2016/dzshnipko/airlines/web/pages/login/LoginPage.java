@@ -2,16 +2,17 @@ package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.login;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.SubmitLink;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.util.string.Strings;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.home.HomePage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.UserRegisterPage;
 
 public class LoginPage extends AbstractPage {
 
@@ -23,8 +24,7 @@ public class LoginPage extends AbstractPage {
     @Override
     protected void onInitialize() {
         super.onInitialize();
-
-        // if already logged then should not see login page at all
+     
         if (AuthenticatedWebSession.get().isSignedIn()) {
             setResponsePage(Application.get().getHomePage());
         }
@@ -33,7 +33,7 @@ public class LoginPage extends AbstractPage {
         form.setDefaultModel(new CompoundPropertyModel<LoginPage>(this));
         form.add(new RequiredTextField<String>("username"));
         form.add(new PasswordTextField("password"));
-
+        
         form.add(new SubmitLink("submit-btn") {
             @Override
             public void onSubmit() {
@@ -44,13 +44,22 @@ public class LoginPage extends AbstractPage {
                 final boolean authResult = AuthenticatedWebSession.get().signIn(username, password);
                 if (authResult) {
                     // continueToOriginalDestination();
-                    setResponsePage(Application.get().getHomePage());
+                    setResponsePage(new HomePage());
                 } else {
-                    error("authorization error");
+                    error(getString("error.worng.password.or.login"));
                 }
             }
         });
         add(form);
+        add(new Link("link-register"){
+
+			@Override
+			public void onClick() {
+				setResponsePage(new UserRegisterPage());
+				
+			}
+        	
+        });
     }
 
 }

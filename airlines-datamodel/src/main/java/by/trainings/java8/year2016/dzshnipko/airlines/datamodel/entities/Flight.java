@@ -106,15 +106,7 @@ public class Flight extends AbstractModel {
 	public void setArrivalTime(Date arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
-	
-	public void addEmployee(Employee employee){
-		employees.add(employee);
-	}
-	
-	public void addEmployeeCollection(Collection<Employee> employees){
-		employees.addAll(employees);
-	}
-	
+		
 	public String getFullDeparturePoint() {
 
 		return String.format("%s (%s)", departurePointName, departureAirport);

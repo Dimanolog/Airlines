@@ -8,14 +8,14 @@ import javax.persistence.OneToOne;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;;
 
 @Entity
-public class User  extends AbstractModel {
+public class UserProfile  extends AbstractModel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	@OneToOne
-	@JoinColumn(name="employee_id")
+	@JoinColumn(name="employee_id" , unique= true, nullable=true, insertable=true, updatable=true)
 	private Employee employee;
 	@Column
 	private UserRole userRole;

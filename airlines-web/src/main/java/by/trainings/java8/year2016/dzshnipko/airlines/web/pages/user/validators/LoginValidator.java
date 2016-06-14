@@ -2,10 +2,10 @@ package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.validators
 
 import javax.inject.Inject;
 
+import org.apache.wicket.injection.Injector;
 import org.apache.wicket.validation.IValidatable;
 import org.apache.wicket.validation.IValidator;
 import org.apache.wicket.validation.ValidationError;
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.RegexValidator;
@@ -25,7 +25,8 @@ public class LoginValidator implements IValidator<String> {
 	
 	private LoginValidator() {
 		super();
-		// TODO Auto-generated constructor stub
+		Injector.get().inject(this);
+		
 	}
 
 	public static LoginValidator getInstance(){

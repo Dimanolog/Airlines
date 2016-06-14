@@ -1,5 +1,6 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.services.utils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,7 +8,11 @@ import java.util.Set;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee;
 
-public class Crew {
+public class Crew implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Employee firstPilot;
 	private Employee secondPilot;
 	private Employee flightEngineer;

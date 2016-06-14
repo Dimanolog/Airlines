@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.UserFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.UserDAO;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserProfile;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.utils.interfaces.RegexValidator;
 
@@ -28,35 +28,36 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> find(UserFilter filter) {
+	public List<UserProfile> find(UserFilter filter) {
 		// TODO Auto-generated method stub
 		return dao.find(filter);
 	}
 
 	@Override
-	public void save(User user) {
-		dao.insert(user);
+	public void save(UserProfile userProfile) {
+		dao.insert(userProfile);
 
 	};
 
 	@Override
-	public void update(User user) {
-		dao.update(user);
+	public void update(UserProfile userProfile) {
+		dao.update(userProfile);
 
 	}
 
 	@Override
-	public void delete(User user) {
-		dao.delete(user.getId());
+	public void delete(UserProfile userProfile) {
+		dao.delete(userProfile.getId());
 
 	}
 
 	@Override
-	public User getUserByLoginOrEmail(String loginOrEmail) {
-
+	public UserProfile getUserByLoginOrEmail(String loginOrEmail) {
+		
 		EmailValidator emailValidator = EmailValidator.getInstance();
-		boolean isAddressValid = emailValidator.isValid(loginOrEmail);
-		if (isAddressValid) {
+		boolean isEmailValid = emailValidator.isValid(loginOrEmail);
+	
+		if (isEmailValid) {
 			return dao.getUserByEmail(loginOrEmail);
 		}
 
@@ -64,19 +65,18 @@ public class UserServiceImpl implements UserService {
 		if (isLoginValid) {
 			return dao.getUserByLogin(loginOrEmail);
 		}
-
-		throw new IllegalArgumentException("not valid login or email");
-
-	}
+		throw new IllegalArgumentException("is not email or login");
+				
+}
 
 	@Override
 	public boolean checkUniqueLogin(String login) {
-		return dao.getUserByLogin(login) == null;
+		return dao.getUserByLogin(login)==null;
 	}
 
 	@Override
 	public boolean checkUniqueEmail(String email) {
-		return dao.getUserByEmail(email) == null;
+		return dao.getUserByEmail(email)==null;
 	}
 
 }

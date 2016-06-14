@@ -87,6 +87,12 @@
 	<entry key="AircraftState.inFlight">На задании</entry>
 	<entry key="AircraftState.secretMission">???</entry>
 	
+	<!-- enum userRole -->
+	<entry key="UserRole.admin">Администратор</entry>
+	<entry key="UserRole.dispatcher">Диспетчер</entry>
+	<entry key="UserRole.user">Пользователь</entry>
+	<entry key="UserRole.superUser">Директор зоопарка</entry>
+	
 	<!-- User -->
 	<entry key="user.role">Роль пользователя</entry> 
 	<entry key="user.login">Логин</entry>

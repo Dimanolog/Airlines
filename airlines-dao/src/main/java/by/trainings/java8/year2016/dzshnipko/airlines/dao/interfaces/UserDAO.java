@@ -1,11 +1,11 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces;
 
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserProfile;
 
-public interface UserDAO extends AbstractDao<User, Long> {
+public interface UserDAO extends AbstractDao<UserProfile, Long> {
 
-	User getUserByLogin(String login);
+	UserProfile getUserByLogin(String login);
 
-	User getUserByEmail(String email);
+	UserProfile getUserByEmail(String email);
 
 }

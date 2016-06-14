@@ -20,11 +20,11 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.UserFilter;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User_;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserProfile;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserProfile_;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
-import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.UserRegisterPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.UserEditPage;
 
 public class UserListPanel extends Panel {
 
@@ -40,32 +40,30 @@ public class UserListPanel extends Panel {
 	protected void onInitialize() {
 		super.onInitialize();
 		UserDataProvider provider = new UserDataProvider();
-		DataView<User> dataView = new DataView<User>("rows", provider, 20) {
+		DataView<UserProfile> dataView = new DataView<UserProfile>("rows", provider, 20) {
 			/**
 			 * 
 			 */
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected void populateItem(Item<User> item) {
-				User user = item.getModelObject();
+			protected void populateItem(Item<UserProfile> item) {
+				UserProfile userProfile = item.getModelObject();
 
-				item.add(new Label("login", user.getLogin()));
-				item.add(new Label("email", user.getEmail()));
+				item.add(new Label("login", userProfile.getLogin()));
+				item.add(new Label("email", userProfile.getEmail()));
 
 				EnumChoiceRenderer<UserRole> userRoleRenderer = new EnumChoiceRenderer<UserRole>();
-				String userRole = (String) userRoleRenderer.getDisplayValue(user.getUserRole());
+				String userRole = (String) userRoleRenderer.getDisplayValue(userProfile.getUserRole());
 				item.add(new Label("role", Model.of(userRole)));
 
 				item.add(new Link<Void>("edit-link") {
-					/**
-					 * 
-					 */
+				
 					private static final long serialVersionUID = 1L;
 
 					@Override
 					public void onClick() {
-						setResponsePage(new UserRegisterPage());
+						setResponsePage(new UserEditPage(userProfile));
 
 					}
 				});
@@ -78,7 +76,7 @@ public class UserListPanel extends Panel {
 
 					@Override
 					public void onClick() {
-						userService.delete(user);
+						userService.delete(userProfile);
 
 					}
 				});
@@ -88,24 +86,24 @@ public class UserListPanel extends Panel {
 		add(dataView);
 		add(new PagingNavigator("paging", dataView));
 
-		add(new OrderByBorder("sort-user-login", User_.login, provider));
-		add(new OrderByBorder("sort-user-email", User_.email, provider));
-		add(new OrderByBorder("sort-user-role", User_.userRole, provider));
+		add(new OrderByBorder("sort-user-login", UserProfile_.login, provider));
+		add(new OrderByBorder("sort-user-email", UserProfile_.email, provider));
+		add(new OrderByBorder("sort-user-role", UserProfile_.userRole, provider));
 
 	}
 
-	private class UserDataProvider extends SortableDataProvider<User, Serializable> {
+	private class UserDataProvider extends SortableDataProvider<UserProfile, Serializable> {
 
 		private UserFilter filter;
 
 		public UserDataProvider() {
 			super();
 			filter = new UserFilter();
-			setSort((Serializable) User_.login, SortOrder.ASCENDING);
+			setSort((Serializable) UserProfile_.login, SortOrder.ASCENDING);
 		}
 
 		@Override
-		public Iterator<User> iterator(long first, long count) {
+		public Iterator<UserProfile> iterator(long first, long count) {
 			Serializable property = getSort().getProperty();
 			SortOrder propertySortOrder = getSortState().getPropertySortOrder(property);
 
@@ -123,8 +121,8 @@ public class UserListPanel extends Panel {
 		}
 
 		@Override
-		public IModel<User> model(User user) {
-			return new Model<User>(user);
+		public IModel<UserProfile> model(UserProfile userProfile) {
+			return new Model<UserProfile>(userProfile);
 		}
 
 	}

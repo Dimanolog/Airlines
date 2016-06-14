@@ -1,21 +1,23 @@
 <wicket:extend xmlns:wicket="http://wicket.apache.org">
 
-		 <h1>
-			Login
-		</h1>
-		<form wicket:id="form">
-			<p class="input">
-				<input type="text" wicket:id="username"  autocomplete="off" />
-			</p>
-			<p class="input">
-				<input type="password" wicket:id="password" />
-			</p>
-			<button type="submit" wicket:id="submit-btn">
-				<b>login</b>
-			</button>
-		</form>
+	<h2>
+		<wicket:message key=login.header />
+	</h2>
+	<form wicket:id="form">
+		<p class="input">
+			<input type="text" wicket:id="username" autocomplete="off" />
+		</p>
+		<p class="input">
+			<input type="password" wicket:id="password" />
+		</p>
+		<button type="submit" wicket:id="submit-btn">
+			<b>login</b>
+		</button>
+
+	</form>
+	<a wicket:id="link-register"><wicket:message key="menu.users" /></a>
 </wicket:extend>
-		
-	
+
+
 
 

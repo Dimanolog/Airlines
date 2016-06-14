@@ -7,8 +7,6 @@ import org.apache.wicket.markup.html.form.ChoiceRenderer;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.WicketApplication;
 
-
-
 public class LocaleChoiceRenderer extends ChoiceRenderer<Locale> {
 
     public static final LocaleChoiceRenderer INSTANCE = new LocaleChoiceRenderer();

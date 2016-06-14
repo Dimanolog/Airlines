@@ -9,6 +9,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.employee.Employe
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights.FlightsPage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.home.HomePage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.login.LoginPage;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.UserPage;
 
 public class MenuPanel extends Panel {
 
@@ -51,6 +52,15 @@ public class MenuPanel extends Panel {
 			}
 		});
 		
+		Link usersLink= new Link("link-users") {
+			@Override
+			public void onClick() {
+				setResponsePage(new UserPage());
+			}
+		};
+		
+		add(usersLink);
+		
 		Link loginLink= new Link("link-login") {
 			@Override
 			public void onClick() {
@@ -66,9 +76,7 @@ public class MenuPanel extends Panel {
 				setResponsePage(new HomePage());
 			}
 		};
-		
-		
-			
+				
 		if (AuthorizedSession.get().isSignedIn()) {
 			loginLink.setVisible(false);
 			logoutLink.setVisible(true);

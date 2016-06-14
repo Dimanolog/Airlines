@@ -1,13 +1,7 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages;
 
-import java.util.Calendar;
-
-import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
-import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 
 import com.googlecode.wicket.kendo.ui.KendoCultureHeaderItem;
@@ -17,13 +11,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.web.component.localization
 import by.trainings.java8.year2016.dzshnipko.airlines.web.component.panel.MenuPanel;
 
 public abstract class AbstractPage extends WebPage {
-
 	
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public AbstractPage() {
@@ -40,24 +28,8 @@ public abstract class AbstractPage extends WebPage {
 		
 		add(new MenuPanel("menu-panel"));
 		add(new LanguageSelectionComponent("language-select"));
-
-		AbstractReadOnlyModel<Integer> yearModel = new AbstractReadOnlyModel<Integer>() {
-			/**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public Integer getObject() {
-				return Calendar.getInstance().get(Calendar.YEAR);
-			}
-		};
-
-		WebMarkupContainer footer = new WebMarkupContainer("footer");
-		add(footer);
 		add(new KendoFeedbackPanel("absFeedback"));
-		footer.add(new Label("current-year", yearModel));
-		footer.add(AttributeModifier.append("onclick", "alert('Im clicked')"));
+		
 
 	}
 

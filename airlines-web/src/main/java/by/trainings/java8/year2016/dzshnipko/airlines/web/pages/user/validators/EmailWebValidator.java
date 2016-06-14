@@ -3,6 +3,7 @@ package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.validators
 import javax.inject.Inject;
 
 import org.apache.commons.validator.routines.EmailValidator;
+import org.apache.wicket.injection.Injector;
 import org.apache.wicket.validation.IValidatable;
 import org.apache.wicket.validation.IValidator;
 import org.apache.wicket.validation.ValidationError;
@@ -10,6 +11,8 @@ import org.apache.wicket.validation.ValidationError;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 
 public class EmailWebValidator implements IValidator<String> {
+
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	UserService userService;
@@ -23,7 +26,7 @@ public class EmailWebValidator implements IValidator<String> {
 
 	private EmailWebValidator() {
 		super();
-		// TODO Auto-generated constructor stub
+		Injector.get().inject(this);
 	}
 
 	@Override
@@ -38,7 +41,7 @@ public class EmailWebValidator implements IValidator<String> {
 			if (!userService.checkUniqueEmail(email)) {
 				error.addKey("error.not.unique.email");
 				validatable.error(error);
-				;
+				
 			}
 		}
 	}

@@ -1,17 +1,17 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user;
 
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.link.Link;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.user.panel.UserListPanel;
-
+@AuthorizeInstantiation(value = {"superUser"})
 public class UserPage extends AbstractPage {
 
 	public UserPage() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();

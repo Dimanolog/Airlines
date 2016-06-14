@@ -5,20 +5,22 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.FormatStyle;
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import org.apache.wicket.Session;
 import org.apache.wicket.authroles.authentication.AuthenticatedWebSession;
 import org.apache.wicket.authroles.authorization.strategies.role.Roles;
 import org.apache.wicket.injection.Injector;
 import org.apache.wicket.request.Request;
 
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserProfile;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 
 public class AuthorizedSession extends AuthenticatedWebSession {
-
+	@Inject
 	private  UserService userService;
 
-	private User loggedUser;
+	private UserProfile loggedUser;
 
 	private Roles roles;
 	
@@ -39,15 +41,15 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 
 	@Override
 	public boolean authenticate(final String loginOrEmail, final String password) {
-		User user = userService.getUserByLoginOrEmail(loginOrEmail);
-		if (user != null) {
-			if (user.getPassword().equals(password)) {
+		UserProfile userProfile = userService.getUserByLoginOrEmail(loginOrEmail);
+		if (userProfile != null) {
+			if (userProfile.getPassword().equals(password)) {
 				return true;
 			}
 		}
 
 		return false;
-	}
+}
 
 	@Override
 	public Roles getRoles() {
@@ -74,7 +76,7 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 		roles = null;
 	}
 
-	public User getLoggedUser() {
+	public UserProfile getLoggedUser() {
 		return loggedUser;
 	}
 

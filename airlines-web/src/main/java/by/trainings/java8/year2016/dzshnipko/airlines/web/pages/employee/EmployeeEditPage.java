@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EnumChoiceRenderer;
 import org.apache.wicket.markup.html.form.Form;
@@ -27,14 +28,14 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.EmployeeService;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-
+@AuthorizeInstantiation( "admin")
 public class EmployeeEditPage extends AbstractPage {
-
+	
 	private Employee employee;
 	@Inject
 	private EmployeeService employeeService;
 
-	//FileUploadField photoUpload;
+
 
 	public EmployeeEditPage(PageParameters parameters) {
 		super(parameters);

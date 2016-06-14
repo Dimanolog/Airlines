@@ -4,19 +4,18 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.SubmitLink;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.validation.validator.StringValidator;
 
 import com.googlecode.wicket.kendo.ui.form.datetime.DateTimePicker;
-import com.googlecode.wicket.kendo.ui.panel.KendoFeedbackPanel;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraft;
@@ -26,7 +25,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.Flight
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.AircraftChoiceRenderer;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-
+@AuthorizeInstantiation("dispatcher")
 public class FlightEditPage extends AbstractPage {
 
 	private static final long serialVersionUID = 1L;

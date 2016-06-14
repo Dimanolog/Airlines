@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EnumChoiceRenderer;
 import org.apache.wicket.markup.html.form.Form;
@@ -30,7 +31,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.Aircra
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.AircraftModelChoiceRenderer;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-
+@AuthorizeInstantiation("dispatcher")
 public class AircraftEditPage extends AbstractPage {
 
 	private static final long serialVersionUID = 1L;

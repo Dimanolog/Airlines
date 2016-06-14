@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EnumChoiceRenderer;
@@ -18,27 +19,27 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.validation.validator.PatternValidator;
 
-import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.User;
+import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserProfile;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
+import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 
-
-public class UserEditPage extends WebPage {
-	private User user;
+@AuthorizeInstantiation(value = {"superUser"})
+public class UserEditPage extends AbstractPage {
+	private UserProfile userProfile;
 	@Inject
 	private UserService userService;
 
-	public UserEditPage(User user) {
+	public UserEditPage(UserProfile userProfile) {
 		super();
-		this.user=user;
+		this.userProfile=userProfile;
 	}
-
 	@Override
 	protected void onInitialize() {
 		super.onInitialize();
 		
-		CompoundPropertyModel<User> compoundModel = new CompoundPropertyModel<User>(user);
-		Form<User> userForm = new UserEditForm<>("user-form", compoundModel);
+		CompoundPropertyModel<UserProfile> compoundModel = new CompoundPropertyModel<UserProfile>(userProfile);
+		Form<UserProfile> userForm = new UserEditForm<>("user-form", compoundModel);
 
 		DropDownChoice<UserRole> roleChoice = new DropDownChoice<>("userRole", Arrays.asList(UserRole.values()),
 				new EnumChoiceRenderer<UserRole>());
@@ -57,7 +58,7 @@ public class UserEditPage extends WebPage {
 			@Override
 			public void onSubmit() {
 				super.onSubmit();
-				userService.update(user);
+				userService.update(userProfile);
 				setResponsePage(new UserPage());
 			}
 		});
@@ -68,8 +69,7 @@ public class UserEditPage extends WebPage {
 			}
 		});
 		add(userForm);
-		add(new FeedbackPanel("feedback"));
-
+		
 	}
 
 	private class UserEditForm<T> extends Form<T> {
