@@ -2,10 +2,6 @@ package by.trainings.java8.year2016.dzshnipko.airlines.dao.filters;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.FlightState;
 
 public class FlightResultFilter extends AbstractFilter {

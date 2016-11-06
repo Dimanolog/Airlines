@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class FlightFilter extends AbstractFilter {
 	
-	
 	private String departurePointName;
 	
 	private String departureAirport;

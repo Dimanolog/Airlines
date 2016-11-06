@@ -6,6 +6,8 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Aircraf
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 
 public class AircraftModelViewPage extends AbstractPage {
+	
+	private static final long serialVersionUID = 1L;
 	private AircraftModel aircraftModel;
 	public AircraftModelViewPage(AircraftModel aircraftModel) {
 		super();

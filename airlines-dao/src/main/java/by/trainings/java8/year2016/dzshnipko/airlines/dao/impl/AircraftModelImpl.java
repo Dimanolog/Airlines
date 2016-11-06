@@ -8,18 +8,16 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
-
-import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AbstractFilter;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AircraftModelFilter;
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.AircraftModelDAO;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AircraftModel;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.AircraftModel_;
-import org.apache.commons.lang.StringUtils;
 
 @Repository
-public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long> implements AircraftModelDAO {
+public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long, AircraftModelFilter> implements AircraftModelDAO {
 
 	protected AircraftModelImpl() {
 		super(AircraftModel.class);
@@ -28,7 +26,7 @@ public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long> impl
 
 
 	@Override
-	protected void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<AircraftModel> from) {
+	protected void handleFilterParameters(AircraftModelFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<AircraftModel> from) {
 		AircraftModelFilter aircraftModelFilter=(AircraftModelFilter)filter;
 		List<Predicate> predicates=new ArrayList<>();
 		
@@ -59,7 +57,7 @@ public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long> impl
 
 
 	@Override
-	protected void fetchLazyInitilization(AbstractFilter filter, Root<AircraftModel> from) {
+	protected void fetchLazyInitilization(AircraftModelFilter filter, Root<AircraftModel> from) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -3,13 +3,9 @@ package by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces;
 
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
 import by.trainings.java8.year2016.dzshnipko.airlines.dao.filters.AbstractFilter;
 
-public interface AbstractDao<T, ID> {
+public interface AbstractDao<T, ID, F extends AbstractFilter> {
 
     List<T> getAll();
 
@@ -21,9 +17,9 @@ public interface AbstractDao<T, ID> {
 
     void delete(ID id);
        
-    Long count(AbstractFilter filter);
+    Long count(F filter);
     
-    List<T> find(AbstractFilter filter);
+    List<T> find(F filter);
 
 	
     

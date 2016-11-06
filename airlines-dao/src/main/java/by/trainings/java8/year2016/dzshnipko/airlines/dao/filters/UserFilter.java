@@ -4,10 +4,13 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.UserRole;
 
 public class UserFilter extends AbstractFilter {
 
+	private static final long serialVersionUID = 1L;
+	
 	private UserRole userRole;
 	private String login;
 	private String email;
 	private boolean FetchEmployee;
+	
 	public UserRole getUserRole() {
 		return userRole;
 	}

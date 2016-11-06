@@ -1,12 +1,13 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.dao.filters;
 
 import java.io.Serializable;
-
 import javax.persistence.metamodel.SingularAttribute;
+
 
 public class AbstractFilter implements Serializable {
 
-    private SingularAttribute sortProperty;
+	private static final long serialVersionUID = 1L;
+	private SingularAttribute<?,?> sortProperty;
     private boolean sortOrder; 
     
     private Integer offset;

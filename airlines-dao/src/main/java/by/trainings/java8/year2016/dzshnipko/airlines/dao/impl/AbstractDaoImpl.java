@@ -16,7 +16,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.dao.interfaces.AbstractDao
 
 
 
-public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
+public abstract class AbstractDaoImpl<T,ID,F  extends AbstractFilter> implements AbstractDao<T, ID,F> {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -29,9 +29,9 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
     }
     
     
-	protected abstract void handleFilterParameters(AbstractFilter filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<T> from);
+	protected abstract void handleFilterParameters(F filter, CriteriaBuilder cb, CriteriaQuery<?> cq, Root<T> from);
 	
-	protected abstract void fetchLazyInitilization(AbstractFilter filter, Root<T> from);
+	protected abstract void fetchLazyInitilization(F filter, Root<T> from);
 	
     @Override
     public List<T> getAll() {
@@ -75,7 +75,7 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
     }
     
    
-    public Long count(AbstractFilter filter) {
+    public Long count(F filter) {
         EntityManager em = getEntityManager();
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -96,7 +96,7 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         return q.getSingleResult();
     }
       
-    public List<T> find(AbstractFilter filter) {
+    public List<T> find(F filter) {
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(getEntityClass());
@@ -115,13 +115,13 @@ public abstract class AbstractDaoImpl<T,ID> implements AbstractDao<T, ID> {
         return q.getResultList();
     }
 
-	private void setSortProperty(AbstractFilter filter, CriteriaQuery<T> cq, Root<T> from) {
+	private void setSortProperty(F filter, CriteriaQuery<T> cq, Root<T> from) {
 		if (filter.getSortProperty() != null) {
             cq.orderBy(new OrderImpl(from.get(filter.getSortProperty()), filter.isSortOrder()));
         }
 	}
 
-    protected void setPaging(AbstractFilter filter, TypedQuery<T> q) {
+    protected void setPaging(F filter, TypedQuery<T> q) {
         if (filter.getOffset() != null && filter.getLimit() != null) {
             q.setFirstResult(filter.getOffset());
             q.setMaxResults(filter.getLimit());

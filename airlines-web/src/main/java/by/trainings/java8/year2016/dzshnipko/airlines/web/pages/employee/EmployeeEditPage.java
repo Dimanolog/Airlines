@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
-import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.EnumChoiceRenderer;
 import org.apache.wicket.markup.html.form.Form;
@@ -19,7 +18,8 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.validation.validator.RangeValidator;
 import org.apache.wicket.validation.validator.StringValidator;
 
-import com.googlecode.wicket.kendo.ui.form.datetime.DatePicker;
+import com.googlecode.wicket.jquery.core.Options;
+import com.googlecode.wicket.jquery.ui.form.datepicker.DatePicker;
 
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.Employee;
 import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.EmloyeeStatus;
@@ -28,14 +28,12 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.enums.Specialty;
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.EmployeeService;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-@AuthorizeInstantiation( "admin")
+
 public class EmployeeEditPage extends AbstractPage {
 	
 	private Employee employee;
 	@Inject
 	private EmployeeService employeeService;
-
-
 
 	public EmployeeEditPage(PageParameters parameters) {
 		super(parameters);
@@ -74,12 +72,17 @@ public class EmployeeEditPage extends AbstractPage {
 				new EnumChoiceRenderer<Gender>());
 		genderChoice.setRequired(true);
 		form.add(genderChoice);
-
-		final DatePicker birthdayDatepicker = new DatePicker("dateOfBirth", AuthorizedSession.get().getLocaleDatePattern());
+		
+		Options options=new Options();
+		options.set("changeMonth", "true");
+		options.set("changeYear", "true");
+		
+		
+		final DatePicker birthdayDatepicker = new DatePicker("dateOfBirth", AuthorizedSession.get().getLocaleDatePattern(),  options);
 		birthdayDatepicker.setRequired(true);
 		form.add(birthdayDatepicker);
 
-		final DatePicker employmentDatepicker = new DatePicker("employmentDate", AuthorizedSession.get().getLocaleDatePattern());
+		final DatePicker employmentDatepicker = new DatePicker("employmentDate", AuthorizedSession.get().getLocaleDatePattern(), options);
 		employmentDatepicker.setRequired(true);
 		form.add(employmentDatepicker);
 

@@ -215,8 +215,4 @@ public class AircraftModelFilter extends AbstractFilter {
 		this.isFetchAircrafts = isFetchAircrafts;
 	}
 
-
-
-	
-
 }

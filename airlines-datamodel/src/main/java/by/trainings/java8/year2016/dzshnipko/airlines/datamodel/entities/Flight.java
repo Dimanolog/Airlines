@@ -1,8 +1,8 @@
 package by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,13 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Flight extends AbstractModel {
 
+	
+	private static final long serialVersionUID = 1L;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Aircraft aircraft;
 	@Column

@@ -2,7 +2,7 @@ package by.trainings.java8.year2016.dzshnipko.airlines.dao.filters;
 
 import java.util.Date;
 
-public class IncidentFilter {
+public class IncidentFilter extends AbstractFilter {
 
 	private Date timeMax;
 

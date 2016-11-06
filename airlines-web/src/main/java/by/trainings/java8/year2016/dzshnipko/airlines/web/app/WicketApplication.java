@@ -41,8 +41,7 @@ public class WicketApplication extends AuthenticatedWebApplication
 	{
 		 super.init();
 	        getMarkupSettings().setStripWicketTags(true);
-	        // add your configuration here
-
+	       
 	        getComponentInstantiationListeners().add(new SpringComponentInjector(this, getApplicationContext()));
 
 	        getSecuritySettings().setAuthorizationStrategy(new AnnotationsRoleAuthorizationStrategy(this));

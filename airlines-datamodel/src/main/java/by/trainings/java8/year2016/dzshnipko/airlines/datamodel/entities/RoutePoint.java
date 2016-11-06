@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
 public class RoutePoint implements Serializable {
-
 	@Id
 	private Integer pointNumder;
 	@Column
