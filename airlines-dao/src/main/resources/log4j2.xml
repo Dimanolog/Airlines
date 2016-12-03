@@ -4,8 +4,8 @@
 		<Console name="CONSOLE" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
 		</Console>
-		<RollingFile name="SERVER_LOGFILE" fileName="/logs/training.log"
-			filePattern="/logs/training-%d{MM-dd-yyyy}.log.gz">
+		<RollingFile name="SERVER_LOGFILE" fileName="/logs/airlines.log"
+			filePattern="/logs/airlines-%d{MM-dd-yyyy}.log.gz">
 			<PatternLayout>
 				<Charset>UTF-8</Charset>
 				<Pattern>%d %-5p %-5c{3}:%L %x -> %m%n</Pattern>
@@ -18,13 +18,13 @@
 	</Appenders>
 	<Loggers>
 
-		<Logger name="by.dzhivushko.training.shop.dataaccess"
+		<Logger name="by.trainings.java8.year2016.dzshnipko.airlines.dao"
 			level="DEBUG" additivity="false">
 			<AppenderRef ref="CONSOLE" />
 		</Logger>
 
 
-		<Logger name="by.dzhivushko.training.shop.service"
+		<Logger name="by.trainings.java8.year2016.dzshnipko.airlines.services"
 			level="WARN" additivity="false">
 			<AppenderRef ref="CONSOLE" />
 			<AppenderRef ref="SERVER_LOGFILE" />

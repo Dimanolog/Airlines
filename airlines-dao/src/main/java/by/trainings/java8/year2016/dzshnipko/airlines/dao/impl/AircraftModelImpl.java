@@ -52,6 +52,7 @@ public class AircraftModelImpl extends AbstractDaoImpl<AircraftModel, Long, Airc
             predicates.add(cb.gt(from.get(AircraftModel_.consumPerHour), aircraftModelFilter.getConsumPerHourMin()));
             
         }
+		cq.where(predicates.toArray(new Predicate[] {}));
 					
 	}
 
