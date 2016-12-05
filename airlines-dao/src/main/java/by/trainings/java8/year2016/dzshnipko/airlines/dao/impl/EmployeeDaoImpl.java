@@ -47,6 +47,4 @@ public class EmployeeDaoImpl extends AbstractDaoImpl<Employee, Long, EmployeeFil
 		}
 	}
 
-	
-
 }

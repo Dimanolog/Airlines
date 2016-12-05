@@ -92,7 +92,7 @@ public class FlightFilter extends AbstractFilter {
 		this.destinationAirport = destinationAirport;
 	}
 
-	public void set–êrrivalTimeMax(Date arrivalTimeMax) {
+	public void setAêrrivalTimeMax(Date arrivalTimeMax) {
 		this.arrivalTimeMax = arrivalTimeMax;
 	}
 

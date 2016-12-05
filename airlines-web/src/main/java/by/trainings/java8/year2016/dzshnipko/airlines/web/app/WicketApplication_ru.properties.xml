@@ -3,7 +3,6 @@
 <properties>
 
 
-
 	<!-- Menu panel -->
 	<entry key="menu.home">Домашняя</entry>
 	<entry key="menu.flights">Авиарейсы</entry>
@@ -13,8 +12,14 @@
 	<entry key="menu.logout">Выход</entry>
 	<entry key="menu.login">Вход</entry>
 	
+	 <!-- i18n -->
+	<entry key="US">Английский</entry>
+	<entry key="RU">Русский</entry>
+	
 	<!-- Login page -->
 	<entry key="login.header">Авторизация</entry>
+	<entry key="login.register">Регистрация</entry>
+	<entry key="login.signIn">Вход</entry>
 	
 	<!-- AircraftModel page -->
 	<entry key="aircraft.model">Модель самолета</entry>
@@ -49,7 +54,7 @@
 	<entry key="employee.totalFlight">Общий налет</entry>
 	<entry key="employee.specialty">Cпециальность</entry>
 	<entry key="employee.name">Имя</entry>
-	<entry key="employee.surname">Фамилия </entry>
+	<entry key="employee.surname">Фамилия</entry>
 	<entry key="employee.birthday.date">Дата рождения</entry>
 	<entry key="employee.job.description">Краткая характеристика</entry>
 	<entry key="employee.status">Статус сотрудника</entry>
@@ -88,6 +93,13 @@
 	<entry key="User.password">Пароль</entry>
 	<entry key="User.repeat.password">Повторить пароль</entry>
 	
+	<!-- User roles enum -->
+	<entry key="UserRole.admin">Администратор</entry>
+	<entry key="UserRole.dispatcher">Диспетчер</entry>
+	<entry key="UserRole.user">Пользователь</entry>
+	<entry key="UserRole.superUser">Директор зоопарка</entry>
+	
+	
 	<!-- gender -->
 	<entry key="Gender.male">Мужской</entry>
 	<entry key="Gender.female">Женский</entry>
@@ -103,8 +115,7 @@
 	<entry key="btn.save">сохранить</entry>
 	<entry key="btn.cancel">Отмена</entry>
 		
-	<entry key="US">Английский</entry>
-	<entry key="RU">Русский</entry>
+	
 		
 	<!-- ErrorMessages -->
 	<entry key="error.wrong.email">Неверный эл. адрес</entry>

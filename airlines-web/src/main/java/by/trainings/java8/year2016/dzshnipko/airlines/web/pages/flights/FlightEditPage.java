@@ -25,7 +25,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.Flight
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.AircraftChoiceRenderer;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-@AuthorizeInstantiation("dispatcher")
+@AuthorizeInstantiation({"dispatcher","superUser"})
 public class FlightEditPage extends AbstractPage {
 
 	private static final long serialVersionUID = 1L;

@@ -33,7 +33,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.CrewCh
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.crew.validators.NumberStuardValidator;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.flights.FlightsPage;
-@AuthorizeInstantiation("admin")
+@AuthorizeInstantiation({"admin","superUser"})
 public class EditCrewPage extends AbstractPage {
 
 	private static final long serialVersionUID = 1L;

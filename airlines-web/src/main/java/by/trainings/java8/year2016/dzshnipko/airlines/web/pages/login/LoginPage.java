@@ -43,8 +43,9 @@ public class LoginPage extends AbstractPage {
                 }
                 final boolean authResult = AuthenticatedWebSession.get().signIn(username, password);
                 if (authResult) {
-                    // continueToOriginalDestination();
-                    setResponsePage(new HomePage());
+                   
+                	//setResponsePage(getApplication().getHomePage());
+                	 continueToOriginalDestination();
                 } else {
                     error(getString("error.worng.password.or.login"));
                 }
@@ -52,7 +53,7 @@ public class LoginPage extends AbstractPage {
         });
         add(form);
         add(new Link("link-register"){
-
+        		
 			@Override
 			public void onClick() {
 				setResponsePage(new UserRegisterPage());

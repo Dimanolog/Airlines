@@ -17,6 +17,11 @@ import by.trainings.java8.year2016.dzshnipko.airlines.datamodel.entities.UserPro
 import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.UserService;
 
 public class AuthorizedSession extends AuthenticatedWebSession {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private  UserService userService;
 
@@ -44,6 +49,7 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 		UserProfile userProfile = userService.getUserByLoginOrEmail(loginOrEmail);
 		if (userProfile != null) {
 			if (userProfile.getPassword().equals(password)) {
+				loggedUser = userProfile;	
 				return true;
 			}
 		}
@@ -56,7 +62,6 @@ public class AuthorizedSession extends AuthenticatedWebSession {
 		if (isSignedIn() && (roles == null)) {
 			roles = new Roles();
 			roles.add(loggedUser.getUserRole().name());
-
 		}
 
 		return roles;

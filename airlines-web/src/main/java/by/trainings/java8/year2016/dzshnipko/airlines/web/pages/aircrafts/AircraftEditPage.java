@@ -31,7 +31,7 @@ import by.trainings.java8.year2016.dzshnipko.airlines.services.interfaces.Aircra
 import by.trainings.java8.year2016.dzshnipko.airlines.web.app.AuthorizedSession;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.commom.renderer.AircraftModelChoiceRenderer;
 import by.trainings.java8.year2016.dzshnipko.airlines.web.pages.AbstractPage;
-@AuthorizeInstantiation("dispatcher")
+@AuthorizeInstantiation({"dispatcher","superUser"})
 public class AircraftEditPage extends AbstractPage {
 
 	private static final long serialVersionUID = 1L;

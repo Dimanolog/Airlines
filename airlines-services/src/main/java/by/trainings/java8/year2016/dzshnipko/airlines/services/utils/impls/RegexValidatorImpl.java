@@ -15,7 +15,7 @@ public class RegexValidatorImpl implements RegexValidator {
 	private Pattern loginPattern=Pattern.compile(LOGIN_PATTERN);
 	private Matcher matcher;
 
-	private static final String LOGIN_PATTERN = "^[a-z0-9_-]{3,15}$";
+	private static final String LOGIN_PATTERN = "^[A-Za-z0-9_-]{3,15}$";
 
 	@Override
 	public boolean validateLogin(final String login) {

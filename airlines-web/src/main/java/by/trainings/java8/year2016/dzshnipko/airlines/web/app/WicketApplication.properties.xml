@@ -8,127 +8,116 @@
 	<entry key="menu.flights">Flights</entry>
 	<entry key="menu.employee">Employee</entry>
 	<entry key="menu.aircraft">Aircraft</entry>
+	<entry key="menu.users">Users</entry>
 	<entry key="menu.logout">logout</entry>
 	<entry key="menu.logoin">login</entry>
 
 	
     <!-- i18n -->
-	<entry key="US">Английский</entry>
-	<entry key="RU">Русский</entry>
+	<entry key="US">English</entry>
+	<entry key="RU">Russian</entry>
+	
+	<!-- Login page -->
+	<entry key="login.header">Authorization</entry>
+	<entry key="login.register">Register</entry>
+	<entry key="login.signIn">SignIn</entry>
+	
+	<!-- AircraftModel page -->
+	<entry key="aircraft.model">Aircrafts model</entry>
+	
+	<!-- Aircraft page -->
+	<entry key="aircraft.number">Aircrafts number</entry>
+	<entry key="aircraft.manufactureDate">Manufacture date</entry>
+	<entry key="aircraft.dateOfPurchase">Date of Purchase</entry>
+	<entry key="aircraft.totalFlight">total flight</entry>
+	<entry key="aircraft.age">The total period of operation</entry>
+	<entry key="aircraft.state">Status</entry>
 	
 	<!-- Flights page -->
-	<entry key="fligts.header">fligts</entry>
+	<entry key="fligts.header">Fligts</entry>
 	<entry key="menu.flights">flights</entry>
 	<entry key="menu.employee">Employee</entry>
 	<entry key="menu.aircraft">Aircrafts</entry>
 	<entry key="menu.logout">Logout</entry>
 	<entry key="menu.login">Login</entry>
 	
-		
-	<!-- AircraftModel page -->
-	<entry key="aircraft.model">Модель самолета</entry>
-	
-	<!-- Aircraft page -->
-	<entry key="aircraft.number">Бортовой номер</entry>
-	<entry key="aircraft.manufactureDate">Дата производства</entry>
-	<entry key="aircraft.dateOfPurchase">Дата покупки</entry>
-	<entry key="aircraft.totalFlight">Общий налет</entry>
-	<entry key="aircraft.age">Общий срок эксплуатации</entry>
-	<entry key="aircraft.state">Общий срок эксплуатации</entry>
-	
-	
-	<!-- Flights page -->
-	<entry key="fligths.header">Авиарейсы</entry>
-	<entry key="fligths.aircraft">Самолет</entry>
-	<entry key="fligths.departure.point">Место отправления</entry>
-	<entry key="fligths.departure.airport">Аэропорт отправления</entry>
-	<entry key="fligths.destination.point">Место прибытия</entry>
-	<entry key="fligths.destination.airport">Аэропорт прибытия</entry>
-	<entry key="fligths.destination.time">Время прибытия</entry>
-	<entry key="fligths.departure.time">Время отправления</entry>
-	
 	<!-- Employee page -->
-	<entry key="employee.header">Персонал</entry>
-	<entry key="employee.fullName">ФИО</entry>
-	<entry key="employee.gender">Пол</entry>
-	<entry key="employee.age">Возраст</entry>
-	<entry key="employee.totalFlight">Общий налет</entry>
-	<entry key="employee.specialty">Cпециальность</entry>
-	<entry key="employee.name">Имя</entry>
-	<entry key="employee.surname">Фамилия </entry>
-	<entry key="employee.birthday.date">Дата рождения</entry>
-	<entry key="employee.job.description">Краткая характеристика</entry>
-	<entry key="employee.status">Статус сотрудника</entry>
-	<entry key="employee.employment.date">Дата найма</entry>
-	
-		
+	<entry key="employee.header">Employee</entry>
+	<entry key="employee.fullName">Full name</entry>
+	<entry key="employee.gender">Gender</entry>
+	<entry key="employee.age">Age</entry>
+	<entry key="employee.totalFlight">Total flying</entry>
+	<entry key="employee.specialty">Specialty</entry>
+	<entry key="employee.name">Name</entry>
+	<entry key="employee.surname">Surname</entry>
+	<entry key="employee.birthday.date">Date of Birth</entry>
+	<entry key="employee.job.description">Description</entry>
+	<entry key="employee.status">status</entry>
+	<entry key="employee.employment.date">Employment date</entry>
+			
 	<!-- Specialty -->
-	<entry key="Specialty.firstPilot">Первый пилот</entry>
-	<entry key="Specialty.secondPilot">Второй пилот</entry>
-	<entry key="Specialty.flightEngineer">Бортинжинер</entry>
-	<entry key="Specialty.navigator">Штурман</entry>
-	<entry key="Specialty.radioman">Радист</entry>
-	<entry key="Specialty.steward">Стюард</entry>
-	<entry key="Specialty.administrator">Aдминистратор</entry>
-	<entry key="Specialty.dispatcher">Диспетчер</entry>
+	<entry key="Specialty.firstPilot">First pilot</entry>
+	<entry key="Specialty.secondPilot">Second pilot</entry>
+	<entry key="Specialty.flightEngineer">Flight engineer</entry>
+	<entry key="Specialty.navigator">Navigator</entry>
+	<entry key="Specialty.radioman">Radioman</entry>
+	<entry key="Specialty.steward">Steward</entry>
+	<entry key="Specialty.administrator">administrator</entry>
+	<entry key="Specialty.dispatcher">Dispatcher</entry>
 	
 	<!-- Employee Status -->
-	<entry key="EmloyeeStatus.ok">Готов к труду и обороне!</entry>
-	<entry key="EmloyeeStatus.fired">Уволен</entry>
-	<entry key="EmloyeeStatus.onHoliday">Отпуск</entry>
-	<entry key="EmloyeeStatus.Parentalleave">Декрет</entry>
-	<entry key="EmloyeeStatus.retired">В отставке</entry>
+	<entry key="EmloyeeStatus.ok">ok</entry>
+	<entry key="EmloyeeStatus.fired">Fired</entry>
+	<entry key="EmloyeeStatus.onHoliday">On holiday</entry>
+	<entry key="EmloyeeStatus.Parentalleave">Parental leave</entry>
+	<entry key="EmloyeeStatus.retired">Retired</entry>
 	
 	<!-- Enum aircraft state -->
-	<entry key="AircraftState.ready">Готов</entry>
-	<entry key="AircraftState.decommissioned">Списан</entry>
-	<entry key="AircraftState.repair">В ремонте</entry>
-	<entry key="AircraftState.sold">Продан</entry>
-	<entry key="AircraftState.inFlight">На задании</entry>
+	<entry key="AircraftState.ready">Ready</entry>
+	<entry key="AircraftState.decommissioned">Decommissioned</entry>
+	<entry key="AircraftState.repair">Repair</entry>
+	<entry key="AircraftState.sold">Sold</entry>
+	<entry key="AircraftState.inFlight">On departure</entry>
 	<entry key="AircraftState.secretMission">???</entry>
 	
-	<!-- enum userRole -->
-	<entry key="UserRole.admin">Администратор</entry>
-	<entry key="UserRole.dispatcher">Диспетчер</entry>
-	<entry key="UserRole.user">Пользователь</entry>
-	<entry key="UserRole.superUser">Директор зоопарка</entry>
-	
 	<!-- User -->
-	<entry key="user.role">Роль пользователя</entry> 
-	<entry key="user.login">Логин</entry>
-	<entry key="user.email">Эл. адрес</entry>
-	<entry key="user.password">Пароль</entry>
-	<entry key="user.repeat.password">Повторить пароль</entry>
+	<entry key="User.header">Users</entry> 
+	<entry key="User.role">User role</entry> 
+	<entry key="User.login">Login</entry>
+	<entry key="User.email">Email</entry>
+	<entry key="User.password">Password</entry>
+	<entry key="User.repeat.password">Repeat password</entry>
 	
+	<!-- User roles enum -->
+	<entry key="UserRole.admin">Admin</entry>
+	<entry key="UserRole.dispatcher">Dispatcher</entry>
+	<entry key="UserRole.user">User</entry>
+	<entry key="UserRole.superUser">Super user</entry>
 	
 	<!-- gender -->
-	<entry key="Gender.male">Мужской</entry>
-	<entry key="Gender.female">Женский</entry>
+	<entry key="Gender.male">Male</entry>
+	<entry key="Gender.female">Female</entry>
 	
 	<!-- others -->
-	<entry key="photo">Фото</entry>
-	
-	<!-- Buttons -->
-	<entry key="btn.create">cоздать</entry>
-	<entry key="btn.save">сохранить</entry>
-	<entry key="btn.cancel">Отмена</entry>
+	<entry key="photo">Photo</entry>
+	<!-- Links -->
+	<entry key="delete">delete</entry>
+	<entry key="edit">edit</entry>
 		
-	<entry key="US">Английский</entry>
-	<entry key="RU">Русский</entry>
-	
-	
+	<!-- Buttons -->
+	<entry key="btn.create">create</entry>
+	<entry key="btn.save">save</entry>
+	<entry key="btn.cancel">cancel</entry>
 		
 	<!-- ErrorMessages -->
-	<entry key="error.wrong.email">Неверный эл. адрес</entry>
-	<entry key="error.not.unique.email">Введеный адрес уже зарегисрован</entry>
-	<entry key="error.wrong.login">Неверный эл. адрес</entry>
-	<entry key="error.not.unique.login">Введенный логин уже зарегистрирован</entry>
-	<entry key="error.not.unique.aircrafts.number">Самолет с данным бортовым номеров уже зарегистрирован</entry>
-	
-
-	
-
-
+	<entry key="error.wrong.email">wrong email</entry>
+	<entry key="error.not.unique.email">Email is already registered</entry>
+	<entry key="error.wrong.login">Invalid login</entry>
+	<entry key="error.not.unique.login">Login is already registered</entry>
+	<entry key="error.not.unique.aircrafts.number">Aircraft number is already registered</entry>
+	<entry key="error.worng.number.stweards">Wrong number of stweards</entry>
+	<entry key="error.worng.password.or.login">Wrong password or login</entry>
+		
 
 
 </properties>
