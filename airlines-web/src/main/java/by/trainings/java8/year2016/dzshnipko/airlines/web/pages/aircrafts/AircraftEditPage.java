@@ -85,8 +85,11 @@ public class AircraftEditPage extends AbstractPage {
 		nmbTotalFlight.setRequired(true);
 		nmbTotalFlight.add(new RangeValidator<Integer>(0, 1_000_000));
 		form.add(nmbTotalFlight);
-
-		List<AircraftModel> aircraftModelList = modelService.find(new AircraftModelFilter());
+		
+		AircraftModelFilter filter=new AircraftModelFilter();
+		filter.setFetchAircrafts(true);
+		List<AircraftModel> aircraftModelList = modelService.find(filter);
+		
 		final DropDownChoice<AircraftModel> aircraftChoice = new DropDownChoice<>("aircraftModel", aircraftModelList,
 				AircraftModelChoiceRenderer.getInstance());
 		aircraftChoice.setRequired(true);
